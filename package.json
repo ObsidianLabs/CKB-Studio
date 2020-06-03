@@ -1,7 +1,7 @@
 {
   "name": "ckb-studio",
   "description": "Graphic IDE for CKB script development",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "author": {
     "name": "CKB Studio",
     "email": "phil.li@obsidians.io",
