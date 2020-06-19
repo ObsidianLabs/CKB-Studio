@@ -26,6 +26,7 @@ yarn-error.log*
 # exclude prebuild
 !prebuild/**
 
+.npmrc
 .yarnrc
 
 dev
