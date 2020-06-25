@@ -32,20 +32,16 @@ When CKB Studio is properly installed and started for the first time, it will di
 ### Projects
 
 #### Create a Project
-The main interface will show a list of CKB projects. If you open CKB Studio for the first time, this list will be empty.
 
-Click the New button to open the Create a New Project popup window. CKB Studio provides some templates to help you start your development:
+The main interface will show a list of CKB projects. If you open CKB Studio for the first time, this list will be empty. You can click the *New* button to create a new CKB project. CKB Studio has provided a list of templates to help you get started:
 
-- *[Javascript] moleculec-es*
-- *[Javascript] molecule-javascript*
-- *[Javascript] minimal*
-- *[Javascript] HTLC*
-- *[C] carrot*
-- *[C] Simple UDT*
-- *Duktape*
-
-
-After selecting the appropriate template, type the project location and the project name, and click the Create Project button.
+- **[Javascript] moleculec-es**
+- **[Javascript] molecule-javascript**
+- **[Javascript] minimal**
+- **[Javascript] HTLC**
+- **[C] carrot**
+- **[C] Simple UDT**
+- **Duktape**
 
 <p align="center">
   <img src="./assets/screenshots/create_project.png" width="800px">
@@ -60,77 +56,84 @@ Click the *Build* button (with the hammer icon) in the project toolbar (above th
   <img src="./assets/screenshots/build_button.png" width="200px">
 </p>
 
-There is an extra step before building a Javascript project, you will need to type command `npm install` or `yarn` manually in the terminal to install the project dependecies.
+There is an extra step before building a JavaScript project. You will need to type the command `npm install` or `yarn` manually in the terminal to install the project dependecies.
 
 <p align="center">
   <img src="./assets/screenshots/yarn.png" width="800px">
 </p>
 
-The compiled files will be at different locations based on different kinds of project:
-- Javascript locates at `./build/duktape.js`
-- C locates at `./[your_project_name].o`
+The compiled files will be at different locations based on the project language:
+- `build/*` for JavaScript project
+- `{script_name}.o` for C project
 
 #### Debug a Project
-Click the *Debug* button (with the bug icon) in the project toolbar (above the file tree) to debug the current CKB project.
+
+CKB Studio has integrated the [CKB debugger](https://github.com/xxuejie/ckb-standalone-debugger). Click the *Debug* button (with the bug icon) in the project toolbar to debug the current CKB project.
 
 <p align="center">
   <img src="./assets/screenshots/debug_button.png" width="200px">
 </p>
 
-The debugger helps you to find the bugs in the project easily.
+The debugger will run the mocked transaction defined in `mock/tx.json` (or other file defined in the project settings). It will help you to execute the script and check the execution result very easily.
 
 <p align="center">
   <img src="./assets/screenshots/debug_failed.png" width="800px">
 </p>
 
 ### Keypair Manager
-Click the green button (with the key icon) in the bottom left corner to open the keypair manager. In the keypair manager, you can create, import, and delete CKB keys. Create two keypairs and save them into keypair manager, we will use these keypairs for the next part.
+
+Click the green button (with the key icon) in the bottom left corner to open the keypair manager. In the keypair manager, you can create, import, and delete CKB keys. Make sure that you created some keypairs before creating a CKB node. To initialize a CKB node, you will need a miner address to receive the mining rewards.
 
 <p align="center">
   <img src="./assets/screenshots/keypair_manager.png" width="800px">
 </p>
 
-Please note the keys in the Keypair Manager are for development purpose, the private keys are saved unencrypted. **DO NOT** use them on mainnet.
+Please note that all keys in the keypair manager are for development purpose only. The private keys are saved unencrypted so **DO NOT** use them on mainnet.
 
 ### Run CKB Nodes
 
 #### Create a Node Instance
-Click the *Network* tab in the header to open the CKB network manager, where you can start the CKB node. If you open CKB Studio for the first time, this instance list will be empty.
+
+Click the *Network* tab in the header to open the CKB network manager, where you can manage instances for CKB nodes and start a CKB network. If you open CKB Studio for the first time, the instance list will be empty.
 
 <p align="center">
   <img src="./assets/screenshots/node_list_empty.png" width="800px">
 </p>
 
-Click the *New Instance* button to open the New Instance window, type the instance name and select the appropriate CKB version. Select the block assembler (miner) public key we've created in the [Keypair Manager](#keypair-manager) section. Now you can click the *Create* button to create the node instance.
+Click the *New Instance* button to open the *New Instance* window. You will need to select a *block assembler* as the miner to receive mining rewards, so make sure you have created one in the [Keypair Manager](#keypair-manager).
 
 <p align="center">
   <img src="./assets/screenshots/create_node_instance.png" width="800px">
 </p>
 
-#### Start the Node
-Click the *Start* button of the newly created node instance to start a CKB node. Once the node is started, you can explore the node log and miner log in the log monitor.
+#### Start a CKB Node
+
+Click the *Start* button of the newly created node instance to start a CKB node. Once the node is started, you can explore the node log and miner log in the terminals below.
 
 <p align="center">
   <img src="./assets/screenshots/start_node_instance.png" width="800px">
 </p>
 
-#### Switch networks
-In the `Network` dropdown menu, you can switch the current network to mainnet and testnet. Please note that switching networks will stop your running node instance.
+#### Switch Networks
+
+In the `Network` dropdown menu, you can switch to other network such as the Aggron testnet or the CKB mainnet. Switching a network will stop your curretnly running instance.
 
 <p align="center">
   <img src="./assets/screenshots/switch_network.png" width="300px">
 </p>
 
 ### Explorer
-Click the *Explorer* tab in the header to open the CKB Explorer, where you can explore account information.
 
-You can paste a public key to the address bar and hit enter key, if the account exists, the Explorer will reload the page and show the account information including account balance, live cells, account addresses, public keys, lock hash and transactions. You can click the refresh button to update the account information.
+The *Explorer* tab will explore account information.
+
+You can type a CKB address in the search bar the Explorer will reload the page and show the account information including account balance, live cells, account addresses, public keys, lock hash and transactions. You can click the refresh button to update the account information.
 
 <p align="center">
   <img src="./assets/screenshots/explorer.png" width="800px">
 </p>
 
 ### Transaction Constructor
+
 Click the *TX Constructor* tab in the header to open the transaction constructor, where you can construct a CKB transaction.
 
 <p align="center">
