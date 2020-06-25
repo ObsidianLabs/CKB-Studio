@@ -76,7 +76,7 @@ CKB Studio has integrated the [CKB debugger](https://github.com/xxuejie/ckb-stan
   <img src="./screenshots/debug_button.png" width="200px">
 </p>
 
-The debugger will run the mocked transaction defined in `mock/tx.json` (or other file defined in the project settings). It will help you to execute the script and check the execution result very easily.
+The debugger will run the mocked transaction defined in `mock/tx.json` (or other file defined in the project settings). It will help you execute the script and check the execution result very easily.
 
 <p align="center">
   <img src="./screenshots/debug_failed.png" width="800px">
@@ -96,7 +96,7 @@ Please note that all keys in the keypair manager are for development purpose onl
 
 #### Create a Node Instance
 
-Click the *Network* tab in the header to open the CKB network manager, where you can manage instances for CKB nodes and start a CKB network. If you open CKB Studio for the first time, the instance list will be empty.
+Click the *Network* tab in the header to open the CKB network manager, where you can manage instances for CKB nodes and start running a CKB network. If you open CKB Studio for the first time, the instance list will be empty.
 
 <p align="center">
   <img src="./screenshots/node_list_empty.png" width="800px">
@@ -142,59 +142,44 @@ CKB has a special cell-based structure for its transactions. The *TX Constructor
 
 #### Cell Explorer
 
-Cells are the fundamental elements in CKB transactions. The bottom half of the interface is a *cell explorer* where you can look through available cells (live cells) for each address. To learn more about CKB cells, please refer to [here](https://docs.nervos.org/key-concepts/cell-model.html).
-
-<p align="center">
-  <img src="./screenshots/cell_explorer.png" width="800px">
-</p>
+Cells are the fundamental elements to form CKB transactions. The bottom half of the interface is a *cell explorer* where you can look through available cells (live cells) for each address. To learn more about CKB cells, please refer to the [cell model](https://docs.nervos.org/key-concepts/cell-model.html).
 
 In the cell explorer, you can
 
 - Check the total number and total capacity of live cells
 - Double-click a cell to look at its detailed information
 - Use the *show empty cells* toggler to show/hide *empty cells* (cells that do not have data & type script)
-- Drag cells to *Input* or *Deps* fields to construct transactions
+- Drag cells to *Inputs* or *Deps* to construct transactions
 - Generate CKB transactions for specific types (see [below](#generate-specific-transactions))
 
-#### Generate Specific Transactions
-
-For some specific types of transactions, CKB Studio can help you automatically query the cells to use and combine them into a transaction. CKB Studio currently supports the following types
-
-- Make regular *transfer*
-- Construct a *new cell* with custom data
-- *Mint* User-Defined-Token (UDT)
-- Make *UDT transfers*
-
-For example, click the *Transfer* button next to search bar to open the *Transfer* window. You can just type in the amount and the recipient address, and CKB Studio will look through all available empty cells and generate a transaction that satisfies your entered values. You can also use the same button to transfer a UDT token.
-
-<p align="center">
-  <img src="./screenshots/transfer_transaction.png" width="800px">
-</p>
 
 #### Assemble General Transactions Manually
 
 If you want to make a general transactions, you need to assemble the input, output, and dep cells manually using the transaction constructor.
 
-You will need some empty cells before making transactions. Turn on the *Show empty cells* option and you will find the empty cells in the Cell Explorer, drag some of them to the *Inputs* field, you will find the total capacity (a orange block) in the upper right corner of *Inputs* field.
-
-Once you have inputs, you can create outputs in the *Outputs* field. Click the *New* button next to the *Outputs* to open the output constructor window. Type the capacity, address, type scripts and data to create a output.
+If you need to use empty cells, remember to turn on the *show empty cells* toggler to display them in the cell explorer. Drag the cells you want to use in *Inputs* and *Depts*, and click the *new* button next to *Outputs* to creeate output cells.
 
 <p align="center">
   <img src="./screenshots/tx_constructor.png" width="800px">
 </p>
 
-If you want to clear all the inputs and outpus field and reset them to empty, you can click the *Clear* button in the upper right.
-
-Once the inputs and outputs are set properly, click the *Push Transaction* button to open transaction detail window, it will show the raw data of the transaction. Check the checkout next to your public key and click the *Sign transaction* button, Transaction Constructor will help you to sign the transaction with your key and the *Sign transaction* button will change to *Push transaction* button. Click the *Push transaction* button and the transaction will be submitted.
+Once the inputs, deps and outputs are set properly, click the *Push Transaction* button where you can see the raw transaction object. Select keys you want to use to sign the transaction and click the *Sign Transaction* button. CKB Studio will sign the transaction and update the transaction object with witnesses data. Then you can click the *Push Transaction* button to submit it, and wait until it is confirmed by the CKB network.
 
 <p align="center">
   <img src="./screenshots/sign_transaction.png" width="800px">
 </p>
 
-#### User Defined Token
+#### Generate Specific Transactions
 
-You can create a user defined token using *Mint UDT*. Click the *Mint UDT* button next to the *Transfer* button to open *Mint UDT* window. Edit the UDT symbol and name, type the amount and receiver, click *Preview* button, transaction constructor will help you to fill all the inputs and outpus.
+For some specific types of transactions, CKB Studio can help you query the cells to use automatically and combine them into a transaction. The following type of transactions are supported now
+
+- Make regular transfer
+- Construct a new cell with custom data
+- Mint [User DefinedToken (UDT)](https://docs.nervos.org/glossary/glossary-general.html#user-defined-token)
+- Make UDT transfers*
+
+For example, click the *Transfer* button next to search bar to open the *Transfer* window. You can type in the amount and the recipient address, and CKB Studio will look through all available empty cells and generate a transaction that satisfies your entered values. You can also use the same button to transfer a UDT token. Following the same procedures as described above to sign the transaction and push it to the running CKB network.
 
 <p align="center">
-  <img src="./screenshots/mint_udt.png" width="800px">
+  <img src="./screenshots/transfer_transaction.png" width="800px">
 </p>
