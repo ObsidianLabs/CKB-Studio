@@ -150,35 +150,33 @@ In the cell explorer, you can
 - Double-click a cell to look at its detailed information
 - Use the *show empty cells* toggler to show/hide *empty cells* (cells that do not have data & type script)
 - Drag cells to *Inputs* or *Deps* to construct transactions
-- Generate CKB transactions for specific types (see [below](#generate-specific-transactions))
+- Generate CKB transactions for specific types (see [below](#generate-transactions-of-specific-types))
 
 
 #### Assemble General Transactions Manually
 
-If you want to make a general transactions, you need to assemble the input, output, and dep cells manually using the transaction constructor.
-
-If you need to use empty cells, remember to turn on the *show empty cells* toggler to display them in the cell explorer. Drag the cells you want to use in *Inputs* and *Depts*, and click the *new* button next to *Outputs* to creeate output cells.
+If you want to make a general transaction, you need to assemble the input, output, and dep cells manually using the transaction constructor. You probably need to use some empty cells, so remember to turn on the *show empty cells* toggler to display them in the cell explorer. Drag the cells you need to *Inputs* and *Depts*, and click the *new* button next to *Outputs* to create output cells.
 
 <p align="center">
   <img src="./screenshots/tx_constructor.png" width="800px">
 </p>
 
-Once the inputs, deps and outputs are set properly, click the *Push Transaction* button where you can see the raw transaction object. Select keys you want to use to sign the transaction and click the *Sign Transaction* button. CKB Studio will sign the transaction and update the transaction object with witnesses data. Then you can click the *Push Transaction* button to submit it, and wait until it is confirmed by the CKB network.
+Once the inputs, deps and outputs are set properly, click the *Push Transaction* button where you can see the raw transaction object. Select keys you want to use to sign the transaction and click the *Sign Transaction* button. CKB Studio will load required private keys to finish the signing, and update the transaction object with witnesses data. Then you can click the *Push Transaction* button to submit the transaction, and wait until it is confirmed by the CKB network.
 
 <p align="center">
   <img src="./screenshots/sign_transaction.png" width="800px">
 </p>
 
-#### Generate Specific Transactions
+#### Generate Transactions of Specific Types
 
-For some specific types of transactions, CKB Studio can help you query the cells to use automatically and combine them into a transaction. The following type of transactions are supported now
+For some specific types of transactions, CKB Studio can help you determine which cells to use and combine them into a transaction. The following types of transactions are supported now
 
 - Make regular transfer
 - Construct a new cell with custom data
-- Mint [User DefinedToken (UDT)](https://docs.nervos.org/glossary/glossary-general.html#user-defined-token)
-- Make UDT transfers*
+- Mint [User Defined Token (UDT)](https://docs.nervos.org/glossary/glossary-general.html#user-defined-token)
+- Make UDT transfers
 
-For example, click the *Transfer* button next to search bar to open the *Transfer* window. You can type in the amount and the recipient address, and CKB Studio will look through all available empty cells and generate a transaction that satisfies your entered values. You can also use the same button to transfer a UDT token. Following the same procedures as described above to sign the transaction and push it to the running CKB network.
+For example, click the *Transfer* button next to search bar to open the *Transfer* window. You can type in the amount and the recipient address, and CKB Studio will look through all available empty cells and generate a transaction that satisfies your entered values. You can also use the same button to transfer a UDT token. Next, following the same procedures as described above to sign the transaction and push it to the running CKB network.
 
 <p align="center">
   <img src="./screenshots/transfer_transaction.png" width="800px">
