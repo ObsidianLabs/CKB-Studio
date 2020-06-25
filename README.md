@@ -2,7 +2,7 @@
 
 CKB Studio is an IDE to develop CKB scripts for [Nervos](http://nervos.io/) blockchain. It includes CKB compiler, block explorer, node and miner for local dev chain, Aggron testnet and the CKB mainnet. The TX Constructor provides a convenient tool to generate from regular transfer to UDT and anyone-can-pay transactions.
 
-![](./screenshots/main.png)
+![](screenshots/main.png)
 
 
 ## Installation
@@ -50,9 +50,9 @@ The main interface will show a list of CKB projects. If you open CKB Studio for 
 
 After a project is created, CKB Studio will automatically navigate to the project editor.
 
-#### Project Compiler
+#### Compiler
 
-Click the *Build* button (with the hammer icon) in the project toolbar (above the file tree) to compile the current CKB project.
+Click the *Build* button (with the hammer icon) in the project toolbar (above the file tree) to compile the current CKB project. CKB Studio will choose the right compiler to use depending on the project language (JavaScript or C).
 
 <p align="center">
   <img src="./screenshots/build_button.png" width="200px">
@@ -68,7 +68,7 @@ The compiled files will be at different locations based on the project language:
 - `build/*` for JavaScript project
 - `{script_name}.o` for C project
 
-#### Project Debugger
+#### Debugger
 
 CKB Studio has integrated the [CKB debugger](https://github.com/xxuejie/ckb-standalone-debugger). Click the *Debug* button (with the bug icon) in the project toolbar to debug the current CKB project.
 
@@ -84,13 +84,13 @@ The debugger will run the mocked transaction defined in `mock/tx.json` (or other
 
 ### CKB Keypair Manager
 
-Click the green button (with the key icon) in the bottom left corner to open the keypair manager. In the keypair manager, you can create, import, and delete CKB keys. Make sure that you created some keypairs before creating a CKB node. To initialize a CKB node, you will need a miner address to receive the mining rewards.
+Click the green button (with the key icon) in the bottom left corner to open the keypair manager. In the keypair manager, you can create, import, and manage CKB keys. Make sure you created some keypairs before creating a CKB node. To initialize a CKB node, you will need a miner address to receive the mining rewards.
 
 <p align="center">
   <img src="./screenshots/keypair_manager.png" width="800px">
 </p>
 
-Please note that all keys in the keypair manager are for development purpose only. The private keys are saved unencrypted so **DO NOT** use them on mainnet.
+Please note that all keys in the keypair manager are for development purpose only. The private keys are saved unencrypted so **DO NOT** use them on the mainnet.
 
 ### CKB Nodes
 
@@ -102,7 +102,7 @@ Click the *Network* tab in the header to open the CKB network manager, where you
   <img src="./screenshots/node_list_empty.png" width="800px">
 </p>
 
-Click the *New Instance* button to open the *New Instance* window. You will need to select a *block assembler* as the miner to receive mining rewards, so make sure you have created one in the [Keypair Manager](#ckb-keypair-manager).
+To create a new CKB node instance, click the *New Instance* button. You need to select a *block assembler* as the miner, so make sure you have created a keypair in the [Keypair Manager](#ckb-keypair-manager).
 
 <p align="center">
   <img src="./screenshots/create_node_instance.png" width="800px">
@@ -110,7 +110,7 @@ Click the *New Instance* button to open the *New Instance* window. You will need
 
 #### Start a CKB Node
 
-Click the *Start* button of the newly created node instance to start a CKB node. Once the node is started, you can explore the node log and miner log in the terminals below.
+Click the *Start* button to start a CKB node. Once the node is started, you can see both the node log and miner log in the terminals below.
 
 <p align="center">
   <img src="./screenshots/start_node_instance.png" width="800px">
@@ -118,7 +118,7 @@ Click the *Start* button of the newly created node instance to start a CKB node.
 
 #### Switch Networks
 
-In the `Network` dropdown menu, you can switch to other network such as the Aggron testnet or the CKB mainnet. Switching a network will stop your curretnly running instance.
+In the *Network* dropdown menu you can switch to other network such as the [Aggron testnet](https://docs.nervos.org/dev-guide/testnet.html) or the CKB mainnet. Switching the network will stop your curretnly running instance.
 
 <p align="center">
   <img src="./screenshots/switch_network.png" width="300px">
@@ -126,9 +126,7 @@ In the `Network` dropdown menu, you can switch to other network such as the Aggr
 
 ### CKB Explorer
 
-The *Explorer* tab will explore account information.
-
-You can type a CKB address in the search bar the Explorer will reload the page and show the account information including account balance, live cells, account addresses, public keys, lock hash and transactions. You can click the refresh button to update the account information.
+In the *Explorer* tab, you can look at basic account information and transaction history.
 
 <p align="center">
   <img src="./screenshots/explorer.png" width="800px">
@@ -136,25 +134,46 @@ You can type a CKB address in the search bar the Explorer will reload the page a
 
 ### CKB Transaction Constructor
 
-Click the *TX Constructor* tab in the header to open the transaction constructor, where you can construct a CKB transaction.
+CKB has a special cell-based structure for its transactions. The *TX Constructor* is a dedicated client to facilitate the construction of CKB transactions.
 
 <p align="center">
   <img src="./screenshots/tx_constructor.png" width="800px">
 </p>
 
 #### Cell Explorer
-Cell explorer is the place where you can explore you cells.
 
-There are some features to help with the transaction constructor:
-- Cells information including total number and usage
-- *Show empty cells* option helps you to find the empty cells
-- Drag the cells to the *Input* field to construct inputs
-- *New Cell* helps to construct a new cell with custom data
-- *Transfer* (next to the address bar) helps to construct a transfer transaction
-- *Mint UDT* helps to mint UDT 
+Cells are the fundamental elements in CKB transactions. The bottom half of the interface is a *cell explorer* where you can look through available cells (live cells) for each address. To learn more about CKB cells, please refer to [here](https://docs.nervos.org/key-concepts/cell-model.html).
 
-#### Construct a Transaction Manually
-You can generate a CKB transaction manually using Transaction Constructor.
+<p align="center">
+  <img src="./screenshots/cell_explorer.png" width="800px">
+</p>
+
+In the cell explorer, you can
+
+- Check the total number and total capacity of live cells
+- Double-click a cell to look at its detailed information
+- Use the *show empty cells* toggler to show/hide *empty cells* (cells that do not have data & type script)
+- Drag cells to *Input* or *Deps* fields to construct transactions
+- Generate CKB transactions for specific types (see [below](#generate-specific-transactions))
+
+#### Generate Specific Transactions
+
+For some specific types of transactions, CKB Studio can help you automatically query the cells to use and combine them into a transaction. CKB Studio currently supports the following types
+
+- Make regular *transfer*
+- Construct a *new cell* with custom data
+- *Mint* User-Defined-Token (UDT)
+- Make *UDT transfers*
+
+For example, click the *Transfer* button next to search bar to open the *Transfer* window. You can just type in the amount and the recipient address, and CKB Studio will look through all available empty cells and generate a transaction that satisfies your entered values. You can also use the same button to transfer a UDT token.
+
+<p align="center">
+  <img src="./screenshots/transfer_transaction.png" width="800px">
+</p>
+
+#### Assemble General Transactions Manually
+
+If you want to make a general transactions, you need to assemble the input, output, and dep cells manually using the transaction constructor.
 
 You will need some empty cells before making transactions. Turn on the *Show empty cells* option and you will find the empty cells in the Cell Explorer, drag some of them to the *Inputs* field, you will find the total capacity (a orange block) in the upper right corner of *Inputs* field.
 
@@ -172,14 +191,8 @@ Once the inputs and outputs are set properly, click the *Push Transaction* butto
   <img src="./screenshots/sign_transaction.png" width="800px">
 </p>
 
-#### Generate a Transcation
-You can generate a transaction rather than constructing manually. Click the *Transfer* button next to adress bar in Cell Explorer to open the *Transfer* window. Select the token, type the amount and paste the receiver public key, then click the *Preview* button, transaction constructor will help you to fill all the inputs and outpus.
-
-<p align="center">
-  <img src="./screenshots/transfer_transaction.png" width="800px">
-</p>
-
 #### User Defined Token
+
 You can create a user defined token using *Mint UDT*. Click the *Mint UDT* button next to the *Transfer* button to open *Mint UDT* window. Edit the UDT symbol and name, type the amount and receiver, click *Preview* button, transaction constructor will help you to fill all the inputs and outpus.
 
 <p align="center">
