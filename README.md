@@ -9,7 +9,7 @@ CKB Studio is an IDE to develop CKB scripts for [Nervos](http://nervos.io/) bloc
 
 ### Download
 
-Installation packages are provided in [releases](https://github.com/ObsidianLabs/CKB-Studio/releases). Please select the appropriate format according to your operating system (.dmg or .zip for Mac OS, .AppImage for Linux).
+Installation packages are provided in [releases](https://github.com/ObsidianLabs/CKB-Studio/releases). Please select the appropriate format according to your operating system (`.dmg` or `.zip` for Mac OS, `.AppImage` for Linux).
 
 ### Install
 
