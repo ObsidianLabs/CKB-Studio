@@ -8,6 +8,7 @@ CKB Studio is an IDE to develop CKB scripts for [Nervos](http://nervos.io/) bloc
 ## Installation
 
 ### Download
+
 Installation packages are provided in [releases](https://github.com/ObsidianLabs/CKB-Studio/releases). Please select the appropriate format according to your operating system (.dmg or .zip for Mac OS, .AppImage for Linux).
 
 ### Install
@@ -19,19 +20,19 @@ Installation packages are provided in [releases](https://github.com/ObsidianLabs
 
 ### Install Dependencies for CKB Development
 
-When CKB Studio is properly installed and started for the first time, it will display a welcome page to help you install the dependencies for CKB development - *Docker*, *CKB Node* and *CKB Compiler*.
+When CKB Studio is started for the first time, it will display a welcome page to help you install the dependencies for CKB development - *Docker*, *CKB Node* and *CKB Compiler*.
 
 <p align="center">
   <img src="./assets/screenshots/welcome.png" width="800px">
 </p>
 
 - CKB Studio uses [Docker](https://www.docker.com/) to run CKB node and the compiler. If you don't have Docker installed before, click the Install Docker button to open the Docker official website and follow the instructions to download and install.
-- CKB Node is a [docker image](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain) that contains all the necessary softwares and dependencies to start a CKB node. You can install different node versions in the dropdown menu.
-- CKB Compiler is a [docker image](https://hub.docker.com/r/nervos/ckb) that contains all the necessary softwares and dependencies to compiel a CKB project. You can install different compiler versions in the dropdown menu.
+- [CKB Node](#ckb-nodes) is a docker image ([`nervos/ckb`](https://hub.docker.com/r/nervos/ckb)) that contains all the necessary softwares and dependencies to start a CKB node. You can install different node versions in the dropdown menu.
+- [CKB Compiler](#compiler) is a docker image ([`nervos/ckb-riscv-gnu-toolchain`](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain)) that contains all the necessary softwares and dependencies to compiel a CKB project. You can install different compiler versions in the dropdown menu.
 
-### CKB Project Editor
+### CKB Projects
 
-#### Create a Project
+#### Project List
 
 The main interface will show a list of CKB projects. If you open CKB Studio for the first time, this list will be empty. You can click the *New* button to create a new CKB project. CKB Studio has provided a list of templates to help you get started:
 
@@ -49,7 +50,7 @@ The main interface will show a list of CKB projects. If you open CKB Studio for 
 
 After a project is created, CKB Studio will automatically navigate to the project editor.
 
-#### Compiler
+#### Project Compiler
 
 Click the *Build* button (with the hammer icon) in the project toolbar (above the file tree) to compile the current CKB project.
 
@@ -67,7 +68,7 @@ The compiled files will be at different locations based on the project language:
 - `build/*` for JavaScript project
 - `{script_name}.o` for C project
 
-#### Debugger
+#### Project Debugger
 
 CKB Studio has integrated the [CKB debugger](https://github.com/xxuejie/ckb-standalone-debugger). Click the *Debug* button (with the bug icon) in the project toolbar to debug the current CKB project.
 
