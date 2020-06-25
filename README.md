@@ -17,7 +17,7 @@ Installation packages are provided in [releases](https://github.com/ObsidianLabs
 
 ## Feature Walkthrough
 
-### Prerequisites
+### Install Dependencies for CKB Development
 
 When CKB Studio is properly installed and started for the first time, it will display a welcome page to help you install the dependencies for CKB development - *Docker*, *CKB Node* and *CKB Compiler*.
 
@@ -29,7 +29,7 @@ When CKB Studio is properly installed and started for the first time, it will di
 - CKB Node is a [docker image](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain) that contains all the necessary softwares and dependencies to start a CKB node. You can install different node versions in the dropdown menu.
 - CKB Compiler is a [docker image](https://hub.docker.com/r/nervos/ckb) that contains all the necessary softwares and dependencies to compiel a CKB project. You can install different compiler versions in the dropdown menu.
 
-### Projects
+### CKB Project Editor
 
 #### Create a Project
 
@@ -49,7 +49,8 @@ The main interface will show a list of CKB projects. If you open CKB Studio for 
 
 After a project is created, CKB Studio will automatically navigate to the project editor.
 
-#### Build the Project
+#### Compiler
+
 Click the *Build* button (with the hammer icon) in the project toolbar (above the file tree) to compile the current CKB project.
 
 <p align="center">
@@ -66,7 +67,7 @@ The compiled files will be at different locations based on the project language:
 - `build/*` for JavaScript project
 - `{script_name}.o` for C project
 
-#### Debug a Project
+#### Debugger
 
 CKB Studio has integrated the [CKB debugger](https://github.com/xxuejie/ckb-standalone-debugger). Click the *Debug* button (with the bug icon) in the project toolbar to debug the current CKB project.
 
@@ -80,7 +81,7 @@ The debugger will run the mocked transaction defined in `mock/tx.json` (or other
   <img src="./assets/screenshots/debug_failed.png" width="800px">
 </p>
 
-### Keypair Manager
+### CKB Keypair Manager
 
 Click the green button (with the key icon) in the bottom left corner to open the keypair manager. In the keypair manager, you can create, import, and delete CKB keys. Make sure that you created some keypairs before creating a CKB node. To initialize a CKB node, you will need a miner address to receive the mining rewards.
 
@@ -90,7 +91,7 @@ Click the green button (with the key icon) in the bottom left corner to open the
 
 Please note that all keys in the keypair manager are for development purpose only. The private keys are saved unencrypted so **DO NOT** use them on mainnet.
 
-### Run CKB Nodes
+### CKB Nodes
 
 #### Create a Node Instance
 
@@ -100,7 +101,7 @@ Click the *Network* tab in the header to open the CKB network manager, where you
   <img src="./assets/screenshots/node_list_empty.png" width="800px">
 </p>
 
-Click the *New Instance* button to open the *New Instance* window. You will need to select a *block assembler* as the miner to receive mining rewards, so make sure you have created one in the [Keypair Manager](#keypair-manager).
+Click the *New Instance* button to open the *New Instance* window. You will need to select a *block assembler* as the miner to receive mining rewards, so make sure you have created one in the [Keypair Manager](#ckb-keypair-manager).
 
 <p align="center">
   <img src="./assets/screenshots/create_node_instance.png" width="800px">
@@ -122,7 +123,7 @@ In the `Network` dropdown menu, you can switch to other network such as the Aggr
   <img src="./assets/screenshots/switch_network.png" width="300px">
 </p>
 
-### Explorer
+### CKB Explorer
 
 The *Explorer* tab will explore account information.
 
@@ -132,7 +133,7 @@ You can type a CKB address in the search bar the Explorer will reload the page a
   <img src="./assets/screenshots/explorer.png" width="800px">
 </p>
 
-### Transaction Constructor
+### CKB Transaction Constructor
 
 Click the *TX Constructor* tab in the header to open the transaction constructor, where you can construct a CKB transaction.
 
@@ -155,7 +156,7 @@ There are some features to help with the transaction constructor:
 - *Transfer* (next to the address bar) helps to construct a transfer transaction
 - *Mint UDT* helps to mint UDT 
 
-#### Construct a Transaction manually
+#### Construct a Transaction Manually
 You can generate a CKB transaction manually using Transaction Constructor.
 
 You will need some empty cells before making transactions. Turn on the *Show empty cells* option and you will find the empty cells in the Cell Explorer, drag some of them to the *Inputs* field, you will find the total capacity (a orange block) in the upper right corner of *Inputs* field.
@@ -174,7 +175,7 @@ Once the inputs and outputs are set properly, click the *Push Transaction* butto
   <img src="./assets/screenshots/sign_transaction.png" width="800px">
 </p>
 
-#### Generate a transcation
+#### Generate a Transcation
 You can generate a transaction rather than constructing manually. Click the *Transfer* button next to adress bar in Cell Explorer to open the *Transfer* window. Select the token, type the amount and paste the receiver public key, then click the *Preview* button, transaction constructor will help you to fill all the inputs and outpus.
 
 <p align="center">
