@@ -1,6 +1,6 @@
 # CKB-Studio
 
-CKB Studio is an IDE to develop CKB scripts for [Nervos](http://nervos.io/) blockchain. It includes CKB compiler, block explorer, node and miner for local dev chain, Aggron testnet and the CKB mainnet. The TX Constructor provides a convenient tool to generate from regular transfer to UDT and anyone-can-pay transactions.
+CKB Studio is an IDE to develop CKB scripts for the [Nervos](http://nervos.io/) blockchain. It includes [CKB compiler](#compiler), [block explorer](#ckb-explorer), [node and miner](#ckb-nodes) for local dev chain, Aggron testnet and the CKB mainnet. The [TX Constructor](#ckb-transaction-constructor) provides a convenient tool to generate from regular transfer to UDT and anyone-can-pay transactions.
 
 ![](screenshots/main.png)
 
@@ -76,7 +76,7 @@ CKB Studio has integrated the [CKB debugger](https://github.com/xxuejie/ckb-stan
   <img src="./screenshots/debug_button.png" width="200px">
 </p>
 
-The debugger will run the mocked transaction defined in `mock/tx.json` (or other file defined in the project settings). It will help you execute the script and check the execution result very easily.
+The debugger will run the mocked transaction defined in `mock/tx.json` (or the file defined in the project settings). It will help you run the CKB script and check the execution result very easily.
 
 <p align="center">
   <img src="./screenshots/debug_failed.png" width="800px">
@@ -102,7 +102,7 @@ Click the *Network* tab in the header to open the CKB network manager, where you
   <img src="./screenshots/node_list_empty.png" width="800px">
 </p>
 
-To create a new CKB node instance, click the *New Instance* button. You need to select a *block assembler* as the miner, so make sure you have created a keypair in the [Keypair Manager](#ckb-keypair-manager).
+To create a new CKB node instance, click the *New Instance* button. You need to select a *block assembler* as the miner so make sure you have created keypairs in the [Keypair Manager](#ckb-keypair-manager).
 
 <p align="center">
   <img src="./screenshots/create_node_instance.png" width="800px">
@@ -118,7 +118,7 @@ Click the *Start* button to start a CKB node. Once the node is started, you can 
 
 #### Switch Networks
 
-In the *Network* dropdown menu you can switch to other network such as the [Aggron testnet](https://docs.nervos.org/dev-guide/testnet.html) or the CKB mainnet. Switching the network will stop your curretnly running instance.
+In the *Network* dropdown menu you can switch to other networks such as the [Aggron testnet](https://docs.nervos.org/dev-guide/testnet.html) or the CKB mainnet. Switching the network will stop your curretnly running instance.
 
 <p align="center">
   <img src="./screenshots/switch_network.png" width="300px">
