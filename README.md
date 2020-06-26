@@ -1,9 +1,14 @@
 # CKB-Studio
 
-CKB Studio is an IDE to develop CKB scripts for the [Nervos](http://nervos.io/) blockchain. It includes [CKB compiler](#compiler), [block explorer](#ckb-explorer), [node and miner](#ckb-nodes) for local dev chain, Aggron testnet and the CKB mainnet. The [TX Constructor](#ckb-transaction-constructor) provides a convenient tool to generate from regular transfer to UDT and anyone-can-pay transactions.
-
 ![](screenshots/main.png)
 
+CKB Studio is an IDE to develop CKB scripts on the [Nervos](http://nervos.io/) blockchain. It includes
+
+- [CKB Script Editor](#ckb-script-editor) - code CKB scripts and use the integrated [compiler](#compiler) and [debugger](#debugger)
+- [CKB Keypair Manager](#ckb-keypair-manager) - create and manage CKB keypairs
+- [CKB Node Manager](#ckb-node-manager) - run CKB node and miner; switch between local, Aggron testnet and the CKB mainnet
+- [CKB Explorer](#ckb-explorer) - view account information and transaction history
+- [CKB Transaction Constructor](#ckb-transaction-constructor) - generate CKB transactions conveniently
 
 ## Installation
 
@@ -27,22 +32,22 @@ When CKB Studio is started for the first time, it will display a welcome page to
 </p>
 
 - CKB Studio uses [Docker](https://www.docker.com/) to run CKB node and the compiler. If you don't have Docker installed before, click the Install Docker button to open the Docker official website and follow the instructions to download and install.
-- [CKB Node](#ckb-nodes) is a docker image ([`nervos/ckb`](https://hub.docker.com/r/nervos/ckb)) that contains all the necessary softwares and dependencies to start a CKB node. You can install different node versions in the dropdown menu.
+- [CKB Node](#ckb-node-manager) is a docker image ([`nervos/ckb`](https://hub.docker.com/r/nervos/ckb)) that contains all the necessary softwares and dependencies to start a CKB node. You can install different node versions in the dropdown menu.
 - [CKB Compiler](#compiler) is a docker image ([`nervos/ckb-riscv-gnu-toolchain`](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain)) that contains all the necessary softwares and dependencies to compiel a CKB project. You can install different compiler versions in the dropdown menu.
 
-### CKB Projects
+### CKB Script Editor
 
 #### Project List
 
 The main interface will show a list of CKB projects. If you open CKB Studio for the first time, this list will be empty. You can click the *New* button to create a new CKB project. CKB Studio has provided a list of templates to help you get started:
 
-- **[JavaScript] moleculec-es**
-- **[JavaScript] molecule-javascript**
-- **[JavaScript] minimal**
-- **[JavaScript] HTLC**
-- **[C] carrot**
-- **[C] Simple UDT**
-- **Duktape**
+- [JavaScript] moleculec-es
+- [JavaScript] molecule-javascript
+- [JavaScript] minimal
+- [JavaScript] HTLC
+- [C] carrot
+- [C] Simple UDT
+- Duktape
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="800px">
@@ -92,7 +97,7 @@ Click the green button (with the key icon) in the bottom left corner to open the
 
 Please note that all keys in the keypair manager are for development purpose only. The private keys are saved unencrypted so **DO NOT** use them on the mainnet.
 
-### CKB Nodes
+### CKB Node Manager
 
 #### Create a Node Instance
 
