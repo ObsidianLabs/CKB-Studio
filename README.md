@@ -186,3 +186,19 @@ For example, click the *Transfer* button next to search bar to open the *Transfe
 <p align="center">
   <img src="./screenshots/transfer_transaction.png" width="800px">
 </p>
+
+
+## Tutorials
+
+### CKB Tutorial by Phil Li
+- [Tutorial 1 - CKB Studio features](https://www.youtube.com/watch?v=Y5JqpqwQtiA)
+- [Tutorial 2 - User defined token](https://www.youtube.com/watch?v=VEPAyNAdRFk)
+- [Tutorial 3 - Anyone-can-pay contract](https://www.youtube.com/watch?v=u7YiGOFimNA)
+- [Tutorial 4 - Develop a CKB smart contract using JavaScript](https://www.youtube.com/watch?v=myRVCYGqgBE)
+
+### CKB Tutorial by Jonathan Caras
+
+- [Collection of CKB Studio Tutorials](https://medium.com/nervos-ckb-israel/collection-of-ckb-studio-tutorials-9ffd573894)
+- [Tutorial #1 Installing CKB Studio](https://medium.com/nervos-ckb-israel/installing-ckb-studio-for-mac-138cc7e76914)
+- [Tutorial #2 Printing “Hello World” to the blockchain](https://medium.com/nervos-ckb-israel/ckb-studio-hello-world-tutorial-f38fce2b66b5)
+- [Tutorial #3 Minting your first custom token with CKB Studio](https://medium.com/nervos-ckb-israel/minting-custom-tokens-with-ckb-studio-3354783acb38)
