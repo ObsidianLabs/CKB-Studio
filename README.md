@@ -10,6 +10,8 @@ CKB Studio is an IDE to develop CKB scripts on the [Nervos](http://nervos.io/) b
 - [CKB Explorer](#ckb-explorer) - view account information and transaction history
 - [CKB Transaction Constructor](#ckb-transaction-constructor) - generate CKB transactions conveniently
 
+If you want to learn more about how to use CKB Studio, please go to the [Tutorials](#tutorials) section.
+
 ## Installation
 
 ### Download
@@ -186,3 +188,20 @@ For example, click the *Transfer* button next to search bar to open the *Transfe
 <p align="center">
   <img src="./screenshots/transfer_transaction.png" width="800px">
 </p>
+
+
+## Tutorials
+
+### Tutorials by Jonathan Caras
+
+- [Collection of CKB Studio Tutorials](https://medium.com/nervos-ckb-israel/collection-of-ckb-studio-tutorials-9ffd573894)
+- [Tutorial #1 Installing CKB Studio](https://medium.com/nervos-ckb-israel/installing-ckb-studio-for-mac-138cc7e76914)
+- [Tutorial #2 Printing “Hello World” to the blockchain](https://medium.com/nervos-ckb-israel/ckb-studio-hello-world-tutorial-f38fce2b66b5)
+- [Tutorial #3 Minting your first custom token with CKB Studio](https://medium.com/nervos-ckb-israel/minting-custom-tokens-with-ckb-studio-3354783acb38)
+
+### Video Tutorials by Phil (in Chinese)
+
+- [#1 CKB Studio features](https://www.bilibili.com/video/BV1rk4y1q7sA?p=1)
+- [#2 User defined token](https://www.bilibili.com/video/BV1rk4y1q7sA?p=2)
+- [#3 Anyone-can-pay contract](https://www.bilibili.com/video/BV1rk4y1q7sA?p=3)
+- [#4 Develop a CKB smart contract using JavaScript](https://www.bilibili.com/video/BV1rk4y1q7sA?p=4)
