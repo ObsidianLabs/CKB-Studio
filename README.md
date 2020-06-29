@@ -10,7 +10,7 @@ CKB Studio is an IDE to develop CKB scripts on the [Nervos](http://nervos.io/) b
 - [CKB Explorer](#ckb-explorer) - view account information and transaction history
 - [CKB Transaction Constructor](#ckb-transaction-constructor) - generate CKB transactions conveniently
 
-If you want to learn more about CKB Studio, please go to the [Tutorials](#tutorials) section.
+If you want to learn more about how to use CKB Studio, please go to the [Tutorials](#tutorials) section.
 
 ## Installation
 
@@ -201,7 +201,7 @@ For example, click the *Transfer* button next to search bar to open the *Transfe
 
 ### Video Tutorials by Phil (in Chinese)
 
-- [Tutorial 1 - CKB Studio features](https://www.bilibili.com/video/BV1rk4y1q7sA?p=1)
-- [Tutorial 2 - User defined token](https://www.bilibili.com/video/BV1rk4y1q7sA?p=2)
-- [Tutorial 3 - Anyone-can-pay contract](https://www.bilibili.com/video/BV1rk4y1q7sA?p=3)
-- [Tutorial 4 - Develop a CKB smart contract using JavaScript](https://www.bilibili.com/video/BV1rk4y1q7sA?p=4)
+- [#1 CKB Studio features](https://www.bilibili.com/video/BV1rk4y1q7sA?p=1)
+- [#2 User defined token](https://www.bilibili.com/video/BV1rk4y1q7sA?p=2)
+- [#3 Anyone-can-pay contract](https://www.bilibili.com/video/BV1rk4y1q7sA?p=3)
+- [#4 Develop a CKB smart contract using JavaScript](https://www.bilibili.com/video/BV1rk4y1q7sA?p=4)
