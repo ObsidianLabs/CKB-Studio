@@ -36,7 +36,7 @@
     "@obsidians/ckb-compiler": "^0.1.0",
     "@obsidians/ckb-header": "^0.1.0",
     "@obsidians/ckb-instances": "^0.1.0",
-    "@obsidians/ckb-keypair": "^0.1.0",
+    "@obsidians/keypair": "^0.1.0",
     "@obsidians/ckb-project": "^0.1.0",
     "@obsidians/ckb-tx": "^0.1.0",
     "@obsidians/ckb-tx-builder": "^0.1.0",

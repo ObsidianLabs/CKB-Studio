@@ -1,6 +1,7 @@
 import Immutable, { List, Map } from 'immutable'
 
 export { redux as projects } from '@obsidians/project'
+export { redux as keypairs } from '@obsidians/keypair'
 
 export const version = {
   default: Immutable.fromJS({}),
