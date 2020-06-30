@@ -4,8 +4,8 @@ import fileOps from '@obsidians/file-ops'
 import { NotificationSystem } from '@obsidians/notification'
 import Welcome, { checkDependencies, GlobalModals, autoUpdater } from '@obsidians/welcome'
 import { LoadingScreen } from '@obsidians/ui-components'
-
-import { store, reduxLoaded, Provider, dispatch } from '@/redux'
+import redux, { Provider } from '@obsidians/redux'
+import { config, updateStore } from '@/redux'
 import '@/menu'
 
 import Routes from './components/Routes'
@@ -19,7 +19,8 @@ export default class ReduxApp extends Component {
   }
 
   async componentDidMount () {
-    await reduxLoaded().then(onReduxLoaded)
+    await redux.init(config, updateStore).then(onReduxLoaded)
+    console.log(redux.store.getState())
     this.refresh()
   }
 
@@ -49,7 +50,7 @@ export default class ReduxApp extends Component {
     }
 
     return (
-      <Provider store={store}>
+      <Provider store={redux.store}>
         <div
           className='body'
           style={{ paddingTop: this.state.dependencies ? '49px' : '0' }}
@@ -67,5 +68,5 @@ export default class ReduxApp extends Component {
 
 async function onReduxLoaded () {
   const version = fileOps.current.getAppVersion()
-  dispatch('SET_VERSION', { version })
+  redux.dispatch('SET_VERSION', { version })
 }

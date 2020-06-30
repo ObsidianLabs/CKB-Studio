@@ -7,7 +7,7 @@ import keypairManager from '@obsidians/keypair'
 
 import { withRouter } from 'react-router-dom'
 
-import { connect, dispatch } from '@/redux'
+import redux, { connect } from '@obsidians/redux'
 
 class Explorer extends Component {
   constructor (props) {
@@ -71,7 +71,7 @@ class Explorer extends Component {
   }
 
   onValueChanged = value => {
-    dispatch('SELECT_ACCOUNT', {
+    redux.dispatch('SELECT_ACCOUNT', {
       network: this.props.network,
       account: value
     })
@@ -79,14 +79,14 @@ class Explorer extends Component {
   }
 
   onChangeStarred = starred => {
-    dispatch('SET_STARRED', {
+    redux.dispatch('SET_STARRED', {
       network: this.props.network,
       starred
     })
   }
 
   onTabsUpdated = tabs => {
-    dispatch('SET_ACCOUNT_TABS', {
+    redux.dispatch('SET_ACCOUNT_TABS', {
       network: this.props.network,
       tabs
     })

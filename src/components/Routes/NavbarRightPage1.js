@@ -9,7 +9,7 @@ import CkbTxBuilder, { CkbCellCollection } from '@obsidians/ckb-tx-builder'
 
 import { withRouter } from 'react-router-dom'
 
-import { connect, dispatch } from '@/redux'
+import redux, { connect } from '@obsidians/redux'
 
 const cellCollection = new CkbCellCollection()
 window.txBuilder = new CkbTxBuilder(cellCollection, fileOps.current.fs)
@@ -76,7 +76,7 @@ class BlockchainApi extends Component {
   }
 
   onValueChanged = value => {
-    dispatch('SELECT_CONTRACT', {
+    redux.dispatch('SELECT_CONTRACT', {
       network: this.props.network,
       contract: value
     })
@@ -84,14 +84,14 @@ class BlockchainApi extends Component {
   }
 
   onChangeStarred = starred => {
-    dispatch('SET_STARRED', {
+    redux.dispatch('SET_STARRED', {
       network: this.props.network,
       starred
     })
   }
 
   onTabsUpdated = tabs => {
-    dispatch('SET_CONTRACT_TABS', {
+    redux.dispatch('SET_CONTRACT_TABS', {
       network: this.props.network,
       tabs
     })

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import { connect, store, dispatch } from '@/redux'
+import redux, { connect } from '@obsidians/redux'
 
 import headerActions, { Header, NavGuard } from '@obsidians/header'
 import { actions } from '@obsidians/project'
@@ -35,10 +35,6 @@ const networks = List([
 
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
-    const redux = {
-      getState: () => store.getState(),
-      dispatch,
-    }
     actions.history = this.props.history
     actions.redux = redux
     headerActions.history = this.props.history
