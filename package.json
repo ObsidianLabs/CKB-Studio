@@ -113,6 +113,10 @@
     "webpack-cli": "^3.3.9",
     "webpack-merge": "^4.2.2"
   },
+  "workspaces": [
+    "../electron-components/packages/*",
+    "../ckb-components/packages/*"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
