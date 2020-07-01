@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import redux, { connect } from '@obsidians/redux'
+import { connect } from '@obsidians/redux'
 
 import headerActions, { Header, NavGuard } from '@obsidians/header'
 import { actions } from '@obsidians/project'
@@ -36,10 +36,8 @@ const networks = List([
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
     actions.history = this.props.history
-    actions.redux = redux
     headerActions.history = this.props.history
-    headerActions.redux = redux
-    this.navGuard = new NavGuard(this.props.history, redux)
+    this.navGuard = new NavGuard(this.props.history)
   }
 
   networkList = networksByGroup => {
