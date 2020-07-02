@@ -2,35 +2,8 @@ import React, { PureComponent } from 'react'
 
 import { connect } from '@obsidians/redux'
 
-import headerActions, { Header, NavGuard } from '@obsidians/header'
+import headerActions, { networks, Header, NavGuard } from '@obsidians/header'
 import { actions } from '@obsidians/project'
-
-import { List } from 'immutable'
-
-const networks = List([
-  {
-    id: 'local',
-    group: 'default',
-    name: 'Local',
-    fullName: 'Local Network',
-    icon: 'fas fa-laptop-code',
-    notification: 'Switched to <b>Local</b> network.',
-  }, {
-    id: "ckb-aggron",
-    group: "testnet",
-    name: "Aggron",
-    fullName: "Testnet Aggron",
-    icon: "far fa-clouds",
-    notification: "Switched to <b>Testnet Aggron</b>.",
-  }, {
-    id: "ckb-mainnet",
-    group: "mainnet",
-    name: "Mainnet",
-    fullName: "CKB Mainnet",
-    icon: "far fa-globe",
-    notification: "Switched to <b>CKB Mainnet</b>.",
-  }
-])
 
 
 class HeaderWithRedux extends PureComponent {
