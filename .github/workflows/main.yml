@@ -65,11 +65,16 @@ jobs:
         with:
           node-version: 12
 
-      - name: Checkout Studio
+      - name: Checkout electron-components
         uses: actions/checkout@v2
         with:
+          repository: ObsidianLabs/electron-components
           ref: develop
-          path: './studio'
+          path: ./electron-components
+
+      - name: Build electron-components
+        working-directory: ./electron-components
+        run: yarn && yarn build
 
       - name: Checkout ckb-components
         uses: actions/checkout@v2
@@ -78,23 +83,24 @@ jobs:
           ref: develop
           path: ./ckb-components
 
-      - name: Checkout electron-components
-        uses: actions/checkout@v2
-        with:
-          repository: ObsidianLabs/electron-components
-          ref: develop
-          path: ./electron-components
-
-      - name: Install electron-components
-        working-directory: ./electron-components
-        run: yarn && yarn build
-
-      - name: Install ckb-components
+      - name: Build ckb-components
         working-directory: ./ckb-components
         run: yarn && yarn build
 
-      # - name: Build electron-components
-      #   uses: ./.github/actions/build-electron
+      - name: Checkout Studio
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+          path: ./studio
+
+      - name: Build electron-components
+        working-directory: ./studio
+        uses: ./.github/actions/build
+        with:
+          build: ckb
+          project_name: CKB Studio CI
+          build_script: yarn && yarn build
+          fontawesome_token: ${{ secrets.fontawesome_token }}
 
 
       # - name: Build

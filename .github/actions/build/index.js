@@ -89,10 +89,15 @@ const runAction = () => {
 	}
 
 	// Set Sentry token
-	setEnvVariable("SENTRY_ORGANIZATION", getEnvVariable("sentry_organization"));
-	setEnvVariable("SENTRY_PROJECT", getEnvVariable("sentry_project"));
-	setEnvVariable("SENTRY_API_TOKEN", getEnvVariable("sentry_api_token"));
-	setEnvVariable("UPLOAD_SOURCEMAPS", true);
+	// setEnvVariable("SENTRY_ORGANIZATION", getEnvVariable("sentry_organization"));
+	// setEnvVariable("SENTRY_PROJECT", getEnvVariable("sentry_project"));
+	// setEnvVariable("SENTRY_API_TOKEN", getEnvVariable("sentry_api_token"));
+	// setEnvVariable("UPLOAD_SOURCEMAPS", true);
+
+	setEnvVariable("BUILD", getEnvVariable("build"))
+	setEnvVariable("PROJECT_NAME", getEnvVariable("project_name"))
+
+	fs.writeFileSync('.npmrc', `@fortawesome:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken=${getEnvVariable("fontawesome_token")}`)
 
 	// Disable console advertisements during install phase
 	setEnvVariable("ADBLOCK", true);
