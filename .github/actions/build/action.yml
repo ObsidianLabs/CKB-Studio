@@ -1,0 +1,41 @@
+name: Electron Builder Action
+author: Leon
+description: GitHub Action for building Electron App
+
+inputs:
+  build:
+    description: Build
+    required: true
+  project_name:
+    description: Project name
+    required: true
+  build_script:
+    description: Custom build script
+    required: false
+  working-directory:
+    description: Working directory
+    required: false
+  fontawesome_token:
+    description: Fontawesome token
+    required: false
+  mac_certs:
+    description: Base64-encoded code signing certificate for macOS
+    required: false
+  mac_certs_password:
+    description: Password for decrypting `mac_certs`
+    required: false
+  windows_certs:
+    description: Base64-encoded code signing certificate for Windows
+    required: false
+  windows_certs_password:
+    description: Password for decrypting `windows_certs`
+    required: false
+
+
+runs:
+  using: node12
+  main: index.js
+
+branding:
+  icon: upload-cloud
+  color: blue
