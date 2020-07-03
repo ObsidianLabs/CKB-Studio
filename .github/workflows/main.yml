@@ -82,17 +82,22 @@ jobs:
       - name: Checkout Studio
         uses: actions/checkout@v2
         with:
-          ref: develop
+          ref: master
           path: ./studio
 
       - name: Build studio
         uses: ./studio/.github/actions/build
         with:
+          CI: false
           build: ckb
           project_name: CKB Studio CI
           build_script: yarn && yarn dist
-          fontawesome_token: ${{ secrets.fontawesome_token }}
           working-directory: ./studio
+          fontawesome_token: ${{ secrets.fontawesome_token }}
+          mac_certs: ${{ secrets.mac_certs }}
+          mac_certs_password: ${{ mac_certs_password }}
+          windows_certs: ${{ secrets.windows_certs }}
+          windows_certs_password: ${{ secrets.windows_certs_password }}
 
       - name: Upload assets
         uses: AButler/upload-release-assets@v2.0

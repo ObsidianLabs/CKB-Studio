@@ -9,40 +9,28 @@ inputs:
   project_name:
     description: Project name
     required: true
+  build_script:
+    description: Custom build script
+    required: false
+  working-directory:
+    description: Working directory
+    required: false
+  fontawesome_token:
+    description: Fontawesome token
+    required: false
   mac_certs:
     description: Base64-encoded code signing certificate for macOS
     required: false
   mac_certs_password:
     description: Password for decrypting `mac_certs`
     required: false
-  release:
-    description: Whether the app should be released after a successful build
-    required: false
-    default: false
   windows_certs:
     description: Base64-encoded code signing certificate for Windows
     required: false
   windows_certs_password:
     description: Password for decrypting `windows_certs`
     required: false
-  sentry_organization:
-    description: Sentry organization
-    required: false
-  sentry_project:
-    description: Sentry project
-    required: false
-  sentry_api_token:
-    description: Sentry api token
-    required: false
-  build_script:
-    description: Custom build script
-    required: false
-  fontawesome_token:
-    description: Fontawesome token
-    required: false
-  working-directory:
-    description: Working directory
-    required: false
+
 
 runs:
   using: node12
