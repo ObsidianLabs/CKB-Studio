@@ -1,6 +1,6 @@
 const { chdir } = require('process');
 const { execSync } = require("child_process");
-const { existsSync, readFileSync } = require("fs");
+const { existsSync, readFileSync, writeFileSync } = require("fs");
 
 const PACKAGE_JSON_PATH = "./package.json";
 
@@ -102,7 +102,7 @@ const runAction = () => {
 	setEnvVariable("BUILD", getEnvVariable("build"))
 	setEnvVariable("PROJECT_NAME", getEnvVariable("project_name"))
 
-	fs.writeFileSync('.npmrc', `@fortawesome:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken=${getEnvVariable("fontawesome_token")}`)
+	writeFileSync('.npmrc', `@fortawesome:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken=${getEnvVariable("fontawesome_token")}`)
 
 	// Disable console advertisements during install phase
 	setEnvVariable("ADBLOCK", true);
