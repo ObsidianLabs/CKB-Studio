@@ -3,59 +3,51 @@ name: Build
 on:
   release:
     types: [published]
-  # push:
-  #   branches:
-  #     - develop
 
 jobs:
-  # bump:
-  #   runs-on: ubuntu-18.04
+  bump:
+    runs-on: ubuntu-18.04
 
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
-  #       with:
-  #         repository: ObsidianLabs/CKB-Studio
-  #         ref: develop
-  #         fetch-depth: 0
-  #         token: ${{ secrets.GitHub_PAT }} # `GitHub_PAT` is a secret that contains your PAT
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          fetch-depth: 0
 
-  #     - name: Git config
-  #       run: |
-  #         git config --local user.email "actions@github.com"
-  #         git config --local user.name "GitHub Actions"
+      - name: Git config
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
 
-  #     - name: Get the version
-  #       id: get_version
-  #       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-  #       working-directory: ./electron
-  #       shell: bash
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        shell: bash
 
-  #     - name: Install Node.js, NPM and Yarn
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
 
-  #     - name: Bump version
-  #       working-directory: .
-  #       run: yarn version --new-version ${{ steps.get_version.outputs.VERSION }}
+      - name: Bump version
+        working-directory: .
+        run: yarn version --new-version ${{ steps.get_version.outputs.VERSION }}
 
-  #     - name: Push changes
-  #       uses: ad-m/github-push-action@master
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         branch: develop
-  #         repository: ObsidianLabs/CKB-Studio
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
 
 
   release:
-    # needs: bump
+    needs: bump
 
     # Platforms to build on/for
     strategy:
       matrix:
-        # os: [macos-latest, ubuntu-18.04]
-        os: [macos-latest]
+        os: [macos-latest, ubuntu-18.04]
 
     runs-on: ${{ matrix.os }}
 
@@ -107,20 +99,4 @@ jobs:
         with:
           files: 'studio/dist/*.(dmg|zip|exe|AppImage|yml)'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Build
-      #   uses: ./.github/actions/build
-      #   with:
-      #     # macOS code signing certificate
-      #     mac_certs: ${{ secrets.mac_certs }}
-      #     mac_certs_password: ${{ secrets.mac_certs_password }}
-      #     # Windows code signing certificate
-      #     windows_certs: ${{ secrets.windows_certs }}
-      #     windows_certs_password: ${{ secrets.windows_certs_password }}
-      #     sentry_organization: ${{ secrets.sentry_organization }}
-      #     sentry_project: ${{ secrets.sentry_project }}
-      #     sentry_api_token: ${{ secrets.sentry_api_token }}
-      #     build_script: yarn buildelectron
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-
 
