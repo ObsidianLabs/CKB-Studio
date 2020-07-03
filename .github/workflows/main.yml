@@ -3,9 +3,9 @@ name: Build
 on:
   release:
     types: [published]
-  push:
-    branches:
-      - develop
+  # push:
+  #   branches:
+  #     - develop
 
 jobs:
   # bump:
@@ -98,7 +98,7 @@ jobs:
         with:
           build: ckb
           project_name: CKB Studio CI
-          build_script: yarn && yarn build
+          build_script: yarn && yarn dist
           fontawesome_token: ${{ secrets.fontawesome_token }}
           working-directory: ./studio
 
