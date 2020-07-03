@@ -105,7 +105,7 @@ jobs:
       - name: Upload assets
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'electron/dist/*.(dmg|zip|exe|AppImage|yml)'
+          files: 'studio/dist/*.(dmg|zip|exe|AppImage|yml)'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Build
