@@ -60,6 +60,11 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
       - name: Checkout Studio
         uses: actions/checkout@v2
         with:
@@ -80,13 +85,13 @@ jobs:
           ref: develop
           path: ./electron-components
 
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
+      - name: Install electron-components
+        working-directory: ./electron-components
+        run: yarn && yarn build
 
-      - name: Check repos
-        run: ls
+      - name: Install ckb-components
+        working-directory: ./ckb-components
+        run: yarn && yarn build
 
       # - name: Build electron-components
       #   uses: ./.github/actions/build-electron
