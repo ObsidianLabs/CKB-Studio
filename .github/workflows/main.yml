@@ -102,6 +102,11 @@ jobs:
           fontawesome_token: ${{ secrets.fontawesome_token }}
           working-directory: ./studio
 
+      - name: Upload assets
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'electron/dist/*.(dmg|zip|exe|AppImage|yml)'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Build
       #   uses: ./.github/actions/build
@@ -118,8 +123,4 @@ jobs:
       #     build_script: yarn buildelectron
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Upload assets
-      #   uses: AButler/upload-release-assets@v2.0
-      #   with:
-      #     files: 'electron/dist/*.(dmg|zip|exe|AppImage|yml)'
-      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+
