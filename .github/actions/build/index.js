@@ -81,7 +81,7 @@ const runAction = () => {
 	verifyPackageJson();
 
 	// Copy "github_token" input variable to "GH_TOKEN" env variable (required by `electron-builder`)
-	setEnvVariable("GH_TOKEN", getEnvVariable("github_token", true));
+	// setEnvVariable("GH_TOKEN", getEnvVariable("github_token", true));
 
 	// Require code signing certificate and password if building for macOS. Export them to environment
 	// variables (required by `electron-builder`)
