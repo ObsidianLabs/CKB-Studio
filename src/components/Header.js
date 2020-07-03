@@ -1,49 +1,16 @@
 import React, { PureComponent } from 'react'
 
-import { connect, store, dispatch } from '@/redux'
+import { connect } from '@obsidians/redux'
 
-import headerActions, { Header, NavGuard } from '@obsidians/header'
+import headerActions, { networks, Header, NavGuard } from '@obsidians/header'
 import { actions } from '@obsidians/project'
-
-import { List } from 'immutable'
-
-const networks = List([
-  {
-    id: 'local',
-    group: 'default',
-    name: 'Local',
-    fullName: 'Local Network',
-    icon: 'fas fa-laptop-code',
-    notification: 'Switched to <b>Local</b> network.',
-  }, {
-    id: "ckb-aggron",
-    group: "testnet",
-    name: "Aggron",
-    fullName: "Testnet Aggron",
-    icon: "far fa-clouds",
-    notification: "Switched to <b>Testnet Aggron</b>.",
-  }, {
-    id: "ckb-mainnet",
-    group: "mainnet",
-    name: "Mainnet",
-    fullName: "CKB Mainnet",
-    icon: "far fa-globe",
-    notification: "Switched to <b>CKB Mainnet</b>.",
-  }
-])
 
 
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
-    const redux = {
-      getState: () => store.getState(),
-      dispatch,
-    }
     actions.history = this.props.history
-    actions.redux = redux
     headerActions.history = this.props.history
-    headerActions.redux = redux
-    this.navGuard = new NavGuard(this.props.history, redux)
+    this.navGuard = new NavGuard(this.props.history)
   }
 
   networkList = networksByGroup => {
@@ -73,9 +40,9 @@ class HeaderWithRedux extends PureComponent {
     const networkList = this.networkList(networkGroups)
     const selectedNetwork = networks.find(n => n.id === network) || {}
 
-    const starred = accounts.getIn([network.id, 'accounts'])?.toJS() || []
-    const selectedContract = contracts.getIn([network.id, 'selected']) || ''
-    const selectedAccount = accounts.getIn([network.id, 'selected']) || ''
+    const starred = accounts.getIn([network, 'accounts'])?.toJS() || []
+    const selectedContract = contracts.getIn([network, 'selected']) || ''
+    const selectedAccount = accounts.getIn([network, 'selected']) || ''
 
     return (
       <Header

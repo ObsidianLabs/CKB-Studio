@@ -47,7 +47,7 @@ const overrides = [
     '@obsidians/project': `@obsidians/${process.env.BUILD}-project`,
     '@obsidians/instances': `@obsidians/${process.env.BUILD}-instances`,
     '@obsidians/bottombar': `@obsidians/${process.env.BUILD}-bottombar`,
-    '@obsidians/keypair': `@obsidians/${process.env.BUILD}-keypair`,
+    '@obsidians/sdk': `@obsidians/${process.env.BUILD}-sdk`,
   }),
   overrideProcessEnv({
     BUILD: JSON.stringify(process.env.BUILD),

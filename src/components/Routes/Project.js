@@ -4,7 +4,7 @@ import {
   Button,
 } from '@obsidians/ui-components'
 
-import { connect } from '@/redux'
+import { connect } from '@obsidians/redux'
 
 import Project, { actions } from '@obsidians/project'
 
