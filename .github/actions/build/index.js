@@ -1,3 +1,4 @@
+const { chdir } = require('process');
 const { execSync } = require("child_process");
 const { existsSync, readFileSync } = require("fs");
 
@@ -69,6 +70,10 @@ const setEnvVariable = (name, value) => {
  * Installs NPM dependencies and builds/releases the Electron app
  */
 const runAction = () => {
+	const workingDirectory = getEnvVariable("working-directory")
+	if (workingDirectory) {
+		chdir(workingDirectory)
+	}
 	const platform = getPlatform();
 	const release = getEnvVariable("release") === "true";
 

@@ -40,6 +40,10 @@ inputs:
   fontawesome_token:
     description: Fontawesome token
     required: false
+  working-directory:
+    description: Working directory
+    required: false
+
 runs:
   using: node12
   main: index.js

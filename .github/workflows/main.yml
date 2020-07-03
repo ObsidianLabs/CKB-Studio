@@ -94,13 +94,14 @@ jobs:
           path: ./studio
 
       - name: Build electron-components
-        working-directory: ./studio
+        # working-directory: ./studio
         uses: ./.github/actions/build
         with:
           build: ckb
           project_name: CKB Studio CI
           build_script: yarn && yarn build
           fontawesome_token: ${{ secrets.fontawesome_token }}
+          working-directory: ./studio
 
 
       # - name: Build
