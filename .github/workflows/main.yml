@@ -54,7 +54,8 @@ jobs:
     # Platforms to build on/for
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-18.04]
+        # os: [macos-latest, ubuntu-18.04]
+        os: [macos-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -84,8 +85,11 @@ jobs:
         with:
           node-version: 12
 
-      - name: Build electron-components
-        uses: ./.github/actions/build-electron
+      - name: Check repos
+        run: ls
+
+      # - name: Build electron-components
+      #   uses: ./.github/actions/build-electron
 
 
       # - name: Build
