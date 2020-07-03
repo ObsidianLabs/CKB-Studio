@@ -93,9 +93,8 @@ jobs:
           ref: develop
           path: ./studio
 
-      - name: Build electron-components
-        # working-directory: ./studio
-        uses: ./.github/actions/build
+      - name: Build studio
+        uses: ./studio/.github/actions/build
         with:
           build: ckb
           project_name: CKB Studio CI
