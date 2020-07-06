@@ -86,7 +86,7 @@ jobs:
           path: ./studio
 
       - name: Build studio
-        uses: ./studio/.github/actions/build
+        uses: ObsidianLabs/studio-build-action@master
         with:
           CI: false
           build: ckb
