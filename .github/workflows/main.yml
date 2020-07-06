@@ -88,7 +88,6 @@ jobs:
       - name: Build studio
         uses: ObsidianLabs/studio-build-action@master
         with:
-          CI: false
           build: ckb
           project_name: CKB Studio
           build_script: yarn && yarn dist
