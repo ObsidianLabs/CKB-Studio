@@ -90,7 +90,7 @@ jobs:
         with:
           CI: false
           build: ckb
-          project_name: CKB Studio CI
+          project_name: CKB Studio
           build_script: yarn && yarn dist
           working-directory: ./studio
           fontawesome_token: ${{ secrets.fontawesome_token }}
