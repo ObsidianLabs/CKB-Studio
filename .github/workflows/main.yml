@@ -32,7 +32,7 @@ jobs:
           yarn version --new-version ${{ steps.get_version.outputs.VERSION }}
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git commit -am 'v${{ steps.get_version.outputs.VERSION }}'
+          git diff-index --quiet HEAD || git commit -am 'v${{ steps.get_version.outputs.VERSION }}'
 
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -60,7 +60,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ObsidianLabs/electron-components
-          ref: develop
+          ref: master
           path: ./electron-components
 
       - name: Build electron-components
@@ -71,8 +71,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ObsidianLabs/ckb-components
-          ref: develop
+          ref: master
           path: ./ckb-components
+
+      - name: Install ckb-components submodule
+        working-directory: ./ckb-components
+        run: git submodule update --init
 
       - name: Build ckb-components
         working-directory: ./ckb-components
@@ -92,10 +96,10 @@ jobs:
           build_script: yarn && yarn dist
           working-directory: ./studio
           fontawesome_token: ${{ secrets.fontawesome_token }}
-          mac_certs: ${{ secrets.mac_certs }}
-          mac_certs_password: ${{ secrets.mac_certs_password }}
-          windows_certs: ${{ secrets.windows_certs }}
-          windows_certs_password: ${{ secrets.windows_certs_password }}
+          mac_certs: ${{ secrets.certs }}
+          mac_certs_password: ${{ secrets.certs_password }}
+          windows_certs: ${{ secrets.certs }}
+          windows_certs_password: ${{ secrets.certs_password }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload assets
