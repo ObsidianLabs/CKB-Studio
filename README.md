@@ -62,7 +62,7 @@ After a project is created, CKB Studio will automatically navigate to the projec
 Click the *Build* button (with the hammer icon) in the project toolbar (above the file tree) to compile the current CKB project. CKB Studio will choose the right compiler to use depending on the project language (JavaScript or C).
 
 <p align="center">
-  <img src="./screenshots/build_button.png" width="200px">
+  <img src="./screenshots/build_button.png" width="240px">
 </p>
 
 There is an extra step before building a JavaScript project. You will need to type the command `npm install` or `yarn` manually in the terminal to install the project dependecies.
@@ -80,7 +80,7 @@ The compiled files will be at different locations based on the project language:
 CKB Studio has integrated the [CKB debugger](https://github.com/xxuejie/ckb-standalone-debugger). Click the *Debug* button (with the bug icon) in the project toolbar to debug the current CKB project.
 
 <p align="center">
-  <img src="./screenshots/debug_button.png" width="200px">
+  <img src="./screenshots/debug_button.png" width="240px">
 </p>
 
 The debugger will run the mocked transaction defined in `mock/tx.json` (or the file defined in the project settings). It will help you run the CKB script and check the execution result very easily.
@@ -128,7 +128,7 @@ Click the *Start* button to start a CKB node. Once the node is started, you can 
 In the *Network* dropdown menu you can switch to other networks such as the [Aggron testnet](https://docs.nervos.org/dev-guide/testnet.html) or the CKB mainnet. Switching the network will stop your curretnly running instance.
 
 <p align="center">
-  <img src="./screenshots/switch_network.png" width="300px">
+  <img src="./screenshots/switch_network.png" width="240px">
 </p>
 
 ### CKB Explorer
