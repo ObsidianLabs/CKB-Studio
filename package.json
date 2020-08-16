@@ -83,7 +83,6 @@
     "react-router-cache-route": "^1.8.4",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.4.0",
-    "semver": "^7.3.2",
     "shell-path": "^2.1.0",
     "source-map-loader": "^0.2.4",
     "typescript": "3.7.2",
