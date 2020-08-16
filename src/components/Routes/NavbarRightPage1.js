@@ -38,6 +38,9 @@ class BlockchainApi extends Component {
 
   componentDidUpdate () {
     this.checkLocation()
+    keypairManager.onUpdated(keypairs => {
+      this.setState({ addressBook: keypairs })
+    })
   }
 
   checkLocation = () => {

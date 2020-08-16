@@ -1,24 +1,10 @@
 import React, { PureComponent } from 'react'
-
-import { InstanceList } from '@obsidians/instances'
-
 import { withRouter } from 'react-router-dom'
 
-import redux, { connect } from '@obsidians/redux'
+import { connect } from '@obsidians/redux'
+import Network from '@obsidians/network'
 
-const onLifecycle = ({ lifecycle, runningInstance }) => {
-  switch (lifecycle) {
-    case 'stopped':
-      redux.dispatch('UPDATE_UI_STATE', { localNetwork: '' })
-      break
-    case 'started':
-      redux.dispatch('UPDATE_UI_STATE', { localNetwork: runningInstance })
-      break
-    default:
-  }
-}
-
-class Network extends PureComponent {
+class NetworkWithProps extends PureComponent {
   state = {
     active: true
   }
@@ -30,16 +16,16 @@ class Network extends PureComponent {
 
   render () {
     return (
-      <InstanceList
+      <Network
         network={this.props.network}
-        onLifecycle={onLifecycle}
         active={this.state.active}
+        customNetwork={this.props.globalConfig.get('customNetwork')}
       />
     )
   }
 }
 
-
 export default connect([
   'network',
-])(withRouter(Network))
+  'globalConfig',
+])(withRouter(NetworkWithProps))

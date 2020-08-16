@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 
 import { connect } from '@obsidians/redux'
 
-import headerActions, { networks, Header, NavGuard } from '@obsidians/header'
+import headerActions, { Header, NavGuard } from '@obsidians/header'
+import { networks } from '@obsidians/network'
 import { actions } from '@obsidians/project'
-
 
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
@@ -21,8 +21,7 @@ class HeaderWithRedux extends PureComponent {
       if (key !== 'default') {
         networkList.push({ header: key })
       }
-      const networkGroup = groups[key].sort((b, a) => b.name < a.name ? -1 : 1)
-      networkGroup.forEach(network => networkList.push(network))
+      groups[key].forEach(network => networkList.push(network))
       if (index !== keys.length - 1) {
         networkList.push({ divider: true })
       }

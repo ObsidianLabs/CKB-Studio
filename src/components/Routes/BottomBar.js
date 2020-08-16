@@ -11,6 +11,7 @@ function BottomBarWithProps (props) {
   return (
     <BottomBar
       projectValid={projectValid}
+      projectLanguage={props.globalConfig.get('projectLanguage')}
       compilerVersion={props.globalConfig.get('compilerVersion')}
       onSelectCompiler={compilerVersion => redux.dispatch('UPDATE_GLOBAL_CONFIG', { compilerVersion })}
     />
