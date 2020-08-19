@@ -16,11 +16,12 @@ If you want to learn more about how to use CKB Studio, please go to the [Tutoria
 
 ### Download
 
-Installation packages are provided in [releases](https://github.com/ObsidianLabs/CKB-Studio/releases). Please select the appropriate format according to your operating system (`.dmg` or `.zip` for Mac OS, `.AppImage` for Linux).
+Installation packages are provided in [releases](https://github.com/ObsidianLabs/CKB-Studio/releases). Please select the appropriate format according to your operating system (`.dmg` or `.zip` for Mac OS, `.exe` for Windows, or `.AppImage` for Linux).
 
 ### Install
 
 - **MacOS**: Double-click to open `CKBStudio-x.x.x.dmg` and drag *CKB Studio* into the *Applications* folder.
+- **Windows**: Double-click `CKBStudio-x.x.x.exe` to install CKB Studio.
 - **Linux**: Right-click `CKBStudio-x.x.x.AppImage`, select *Properties* => *Permissions* => *Execute*, and check the option *Allow executing file as progrom*. Close the property window and double-click the application to open it (different Linux systems may have slightly different installation procedures).
 
 ## Feature Walkthrough
@@ -34,8 +35,12 @@ When CKB Studio is started for the first time, it will display a welcome page to
 </p>
 
 - CKB Studio uses [Docker](https://www.docker.com/) to run CKB node and the compiler. If you don't have Docker installed before, click the Install Docker button to open the Docker official website and follow the instructions to download and install.
-- [CKB Node](#ckb-node-manager) is a docker image ([`nervos/ckb`](https://hub.docker.com/r/nervos/ckb)) that contains all the necessary softwares and dependencies to start a CKB node. You can install different node versions in the dropdown menu.
-- [CKB Compiler](#compiler) is a docker image ([`nervos/ckb-riscv-gnu-toolchain`](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain)) that contains all the necessary softwares and dependencies to compiel a CKB project. You can install different compiler versions in the dropdown menu.
+- [CKB Node](#ckb-node-manager) ([`nervos/ckb`](https://hub.docker.com/r/nervos/ckb)) contains all the necessary softwares and dependencies to start a CKB node.
+- [CKB Indexer](https://github.com/nervosnetwork/ckb-indexer) ([`nervos/ckb-indexer`](https://hub.docker.com/r/nervos/ckb-indexer)) is an application that keeps track of live cells and transactions for specified address (lock script).
+- [Capsule](https://github.com/nervosnetwork/capsule) ([`obsidians/capsule`](https://hub.docker.com/r/obsidians/capsule)) is development framework for creating CKB smart contract scripts in Rust language.
+- [CKB Compiler](#compiler) ([`nervos/ckb-riscv-gnu-toolchain`](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain)) contains all the necessary softwares and dependencies to compile CKB scripts in C.
+
+For each of the required libraries, you can select from different versions to install in the dropdown menu. The latest version is always recommended.
 
 ### CKB Script Editor
 
@@ -43,6 +48,7 @@ When CKB Studio is started for the first time, it will display a welcome page to
 
 The main interface will show a list of CKB projects. If you open CKB Studio for the first time, this list will be empty. You can click the *New* button to create a new CKB project. CKB Studio has provided a list of templates to help you get started:
 
+- [Rust] CKB project in Rust
 - [JavaScript] moleculec-es
 - [JavaScript] molecule-javascript
 - [JavaScript] minimal
@@ -117,7 +123,7 @@ To create a new CKB node instance, click the *New Instance* button. You need to 
 
 #### Start a CKB Node
 
-Click the *Start* button to start a CKB node. Once the node is started, you can see both the node log and miner log in the terminals below.
+Click the *Start* button to start a CKB node. Once the node is started, you can see the node log, indexer log, and miner log in the terminals below.
 
 <p align="center">
   <img src="./screenshots/start_node_instance.png" width="800px">
