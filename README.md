@@ -21,7 +21,7 @@ Installation packages are provided in [releases](https://github.com/ObsidianLabs
 ### Install
 
 - **MacOS**: Double-click to open `CKBStudio-x.x.x.dmg` and drag *CKB Studio* into the *Applications* folder.
-- **Windows**: Double-click `CKBStudio-x.x.x.exe` to install CKB Studio.
+- **Windows**: Double-click `CKBStudio-x.x.x.exe` to install CKB Studio. If you see a warning window for unrecognized app, click *more info* and then click the *Run anyway* button to start the installation.
 - **Linux**: Right-click `CKBStudio-x.x.x.AppImage`, select *Properties* => *Permissions* => *Execute*, and check the option *Allow executing file as progrom*. Close the property window and double-click the application to open it (different Linux systems may have slightly different installation procedures).
 
 ## Feature Walkthrough
