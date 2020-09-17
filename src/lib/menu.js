@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 
-import { globalModalManager } from '@obsidians/welcome'
+import { globalModalManager } from '@obsidians/global'
 
 const handlers = {}
 if (window.require) {
