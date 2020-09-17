@@ -2,7 +2,8 @@ import React, { Component, Suspense, lazy } from 'react'
 
 import fileOps from '@obsidians/file-ops'
 import { NotificationSystem } from '@obsidians/notification'
-import Welcome, { checkDependencies, GlobalModals, autoUpdater } from '@obsidians/welcome'
+import { GlobalModals, autoUpdater } from '@obsidians/global'
+import Welcome, { checkDependencies } from '@obsidians/welcome'
 import { LoadingScreen } from '@obsidians/ui-components'
 import redux, { Provider } from '@obsidians/redux'
 import { config, updateStore } from '@/redux'
@@ -44,7 +45,9 @@ export default class ReduxApp extends Component {
         <Suspense fallback={<LoadingScreen />}>
           <Welcome isReady={checkDependencies} onGetStarted={this.skip} />
           <NotificationSystem />
-          <GlobalModals icon={icon} />
+          <GlobalModals icon={icon}>
+            <p>Telegram: <a href='#' onClick={() => fileOps.current.openLink('https://t.me/ckb_studio')}>https://t.me/ckb_studio</a></p>
+          </GlobalModals>
         </Suspense>
       )
     }
@@ -58,7 +61,9 @@ export default class ReduxApp extends Component {
           <Routes>
             <Header history={this.props.history} />
             <NotificationSystem />
-            <GlobalModals icon={icon} />
+            <GlobalModals icon={icon}>
+              <p>Telegram: <a href='#' onClick={() => fileOps.current.openLink('https://t.me/ckb_studio')}>https://t.me/ckb_studio</a></p>
+            </GlobalModals>
           </Routes>
         </div>
       </Provider>

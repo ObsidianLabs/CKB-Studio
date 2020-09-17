@@ -1,6 +1,6 @@
 const { IpcChannel } = require('@obsidians/ipc')
 const KeypairManager = require('@obsidians/keypair')
-const { AutoUpdate } = require('@obsidians/ckb-welcome')
+const { AutoUpdate } = require('@obsidians/global')
 const CompilerManager = require('@obsidians/ckb-compiler')
 const { CkbInstanceManager } = require('@obsidians/ckb-network')
 const ProjectChannel = require('@obsidians/ckb-project')
