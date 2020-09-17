@@ -108,7 +108,7 @@ export const accounts = {
 }
 
 export const network = {
-  default: 'local',
+  default: '',
   persist: false,
   actions: {
     SELECT_NETWORK: {
