@@ -1,5 +1,6 @@
 export default function ({ persistor, store, actions }) {
   // Data initialization
+  // store.dispatch(actions.RESET())
   store.dispatch(actions.CREATE_LOCAL())
   store.dispatch(actions.CREATE_TABS())
 

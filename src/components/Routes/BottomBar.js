@@ -10,6 +10,7 @@ function BottomBarWithProps (props) {
 
   return (
     <BottomBar
+      txs={props.queue.getIn([props.network, 'txs'])}
       projectValid={projectValid}
       projectLanguage={props.globalConfig.get('projectLanguage')}
       compilerVersion={props.globalConfig.get('compilerVersion')}
@@ -18,4 +19,4 @@ function BottomBarWithProps (props) {
   )
 }
 
-export default connect(['projects', 'globalConfig'])(BottomBarWithProps)
+export default connect(['projects', 'globalConfig', 'queue', 'network'])(BottomBarWithProps)
