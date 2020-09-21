@@ -111,6 +111,7 @@ class Explorer extends Component {
     return (
       <CkbAccount
         ref={this.page}
+        network={network}
         address={this.getSelected()}
         tabs={this.getTabs()}
         starred={this.getStarred()}
