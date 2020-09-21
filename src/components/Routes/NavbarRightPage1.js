@@ -119,6 +119,7 @@ class BlockchainApi extends Component {
     return (
       <CkbTx
         ref={this.page}
+        network={network}
         address={this.getSelected()}
         tabs={this.getTabs()}
         starred={this.getStarred()}
