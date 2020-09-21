@@ -133,6 +133,7 @@ $link-hover-color: $link-color;
 
 @import "button";
 @import "hljs";
+@import "fixed-table";
 
 @each $color, $value in $theme-colors {
   .alert-#{$color} {
@@ -154,6 +155,7 @@ $link-hover-color: $link-color;
   --color-bg2: var(--dark) !important;
   --color-bg-invalid: #{$dark2} !important;
   --color-hover: #{$secondary} !important;
+  --color-placeholder: #{$gray-600} !important;
 
   --color-primary: #{$primary} !important;
   --color-secondary: #{$secondary} !important;
@@ -194,15 +196,6 @@ body::-webkit-scrollbar {
 code {
   font-size: 100%;
   color: inherit;
-}
-
-pre.pre-box {
-  color: inherit;
-  padding: 0.75rem 0.75rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  background: $background;
-  border-radius: $border-radius;
 }
 
 p, th, td, .alert {
