@@ -32,7 +32,7 @@ export const globalConfig = {
   persist: true,
   actions: {
     UPDATE_GLOBAL_CONFIG: {
-      reducer: (state, { payload }) => state.merge(payload)
+      reducer: (state, { payload }) => state.mergeDeep(payload)
     },
   }
 }
@@ -42,7 +42,7 @@ export const uiState = {
   persist: false,
   actions: {
     UPDATE_UI_STATE: {
-      reducer: (state, { payload }) => state.merge(payload)
+      reducer: (state, { payload }) => state.mergeDeep(payload)
     },
   }
 }

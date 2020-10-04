@@ -45,22 +45,17 @@ class ProjectWithProps extends PureComponent {
   }
 
   render () {
-    const { projects, globalConfig } = this.props
+    const { projects } = this.props
     const selected = projects.get('selected')?.toJS() || {}
     
     return (
       <Project
         theme='obsidians'
         projectRoot={selected.path}
-        projectLanguage={globalConfig.get('projectLanguage')}
-        compilerVersion={globalConfig.get('compilerVersion')}
         InvalidProjectActions={this.renderInvalidProjectActions(selected)}
       />
     )
   }
 }
 
-export default connect([
-  'projects',
-  'globalConfig',
-])(ProjectWithProps)
+export default connect(['projects'])(ProjectWithProps)

@@ -42,12 +42,12 @@ const overrides = [
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src/lib'),
     util: path.resolve(__dirname, 'src/lib/util'),
-    '@obsidians/welcome': `@obsidians/${process.env.BUILD}-welcome`,
+    '@obsidians/bottombar': `@obsidians/${process.env.BUILD}-bottombar`,
     '@obsidians/header': `@obsidians/${process.env.BUILD}-header`,
     '@obsidians/network': `@obsidians/${process.env.BUILD}-network`,
     '@obsidians/project': `@obsidians/${process.env.BUILD}-project`,
-    '@obsidians/bottombar': `@obsidians/${process.env.BUILD}-bottombar`,
     '@obsidians/sdk': `@obsidians/${process.env.BUILD}-sdk`,
+    '@obsidians/welcome': `@obsidians/${process.env.BUILD}-welcome`,
   }),
   overrideProcessEnv({
     BUILD: JSON.stringify(process.env.BUILD),
