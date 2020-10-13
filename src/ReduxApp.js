@@ -1,6 +1,7 @@
 import React, { Component, Suspense, lazy } from 'react'
 
 import fileOps from '@obsidians/file-ops'
+import Auth from '@obsidians/auth'
 import { NotificationSystem } from '@obsidians/notification'
 import { GlobalModals, autoUpdater } from '@obsidians/global'
 import Welcome, { checkDependencies } from '@obsidians/welcome'
@@ -72,6 +73,7 @@ export default class ReduxApp extends Component {
 }
 
 async function onReduxLoaded () {
+  Auth.updateProfile()
   const version = fileOps.current.getAppVersion()
   redux.dispatch('SET_VERSION', { version })
 }
