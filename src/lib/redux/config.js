@@ -3,6 +3,7 @@ import Immutable, { List, Map } from 'immutable'
 export { redux as projects } from '@obsidians/project'
 export { redux as keypairs } from '@obsidians/keypair'
 export { redux as queue } from '@obsidians/queue'
+export { redux as auth } from '@obsidians/auth'
 
 export const version = {
   default: Immutable.fromJS({}),
