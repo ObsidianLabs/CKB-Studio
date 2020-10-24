@@ -5,7 +5,6 @@ import {
 } from '@obsidians/ui-components'
 
 import { connect } from '@obsidians/redux'
-
 import Project, { actions } from '@obsidians/project'
 
 window.MonacoEnvironment = {
@@ -52,15 +51,10 @@ class ProjectWithProps extends PureComponent {
       <Project
         theme='obsidians'
         projectRoot={selected.path}
-        projectLanguage={globalConfig.get('projectLanguage')}
-        compilerVersion={globalConfig.get('compilerVersion')}
         InvalidProjectActions={this.renderInvalidProjectActions(selected)}
       />
     )
   }
 }
 
-export default connect([
-  'projects',
-  'globalConfig',
-])(ProjectWithProps)
+export default connect(['projects'])(ProjectWithProps)
