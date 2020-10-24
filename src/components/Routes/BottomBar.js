@@ -1,8 +1,7 @@
 import React from 'react'
 
-import BottomBar from '@obsidians/bottombar'
-
 import { connect } from '@obsidians/redux'
+import BottomBar from '@obsidians/bottombar'
 
 function BottomBarWithProps (props) {
   const selected = props.projects.get('selected')

@@ -1,7 +1,7 @@
 {
   "name": "ckb-studio",
   "description": "Graphic IDE for CKB script development",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "author": {
     "name": "CKB Studio",
     "email": "phil.li@obsidians.io",
@@ -50,6 +50,7 @@
     "@types/node": "12.6.3",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
+    "aws-sdk": "^2.774.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.12.0",
     "bootstrap": "^4.3.1",
