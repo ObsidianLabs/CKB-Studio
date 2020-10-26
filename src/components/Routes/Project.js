@@ -4,6 +4,7 @@ import {
   Button,
 } from '@obsidians/ui-components'
 
+import platform from '@obsidians/platform'
 import { connect } from '@obsidians/redux'
 import Project, { actions } from '@obsidians/project'
 
@@ -51,7 +52,7 @@ class ProjectWithProps extends PureComponent {
       <Project
         theme='obsidians'
         projectRoot={selected.path}
-        type='Local'
+        type={platform.isDesktop ? 'Local' : 'Remote'}
         InvalidProjectActions={this.renderInvalidProjectActions(selected)}
       />
     )
