@@ -1,12 +1,8 @@
 import React, { PureComponent } from 'react'
 
-import {
-  Button,
-} from '@obsidians/ui-components'
-
 import platform from '@obsidians/platform'
 import { connect } from '@obsidians/redux'
-import Project, { actions } from '@obsidians/project'
+import Project from '@obsidians/project'
 
 window.MonacoEnvironment = {
   getWorkerUrl: function (moduleId, label) {
@@ -33,27 +29,29 @@ class ProjectWithProps extends PureComponent {
     })
   }
 
-  renderInvalidProjectActions = project => {
-    return (
-      <React.Fragment>
-        <Button
-          color='secondary'
-          onClick={() => actions.removeProject(project)}
-        >Remove</Button>
-      </React.Fragment>
-    )
-  }
-
   render () {
-    const { projects } = this.props
-    const selected = projects.get('selected')?.toJS() || {}
+    const { projects, match } = this.props
+    const { username, project } = match.params
+
+    let type, projectRoot, selected
+    if (username === 'local') {
+      type = 'Local'
+      selected = projects.get('selected')?.toJS() || {}
+      projectRoot = selected.path
+    } else {
+      type = 'Remote'
+      projectRoot = `${username}/${project}`
+    }
+
+    if (type === 'Local' && platform.isWeb) {
+      return null
+    }
     
     return (
       <Project
         theme='obsidians'
-        projectRoot={selected.path}
-        type={platform.isDesktop ? 'Local' : 'Remote'}
-        InvalidProjectActions={this.renderInvalidProjectActions(selected)}
+        projectRoot={projectRoot}
+        type={type}
       />
     )
   }
