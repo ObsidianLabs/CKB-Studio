@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 
 import { Screen, Button } from '@obsidians/ui-components'
-
-import keypairManager from '@obsidians/keypair'
-import fileOps from '@obsidians/file-ops'
-import CkbTx from '@obsidians/ckb-tx'
-import CkbTxBuilder, { CkbCellCollection } from '@obsidians/ckb-tx-builder'
-
-import { withRouter } from 'react-router-dom'
-
 import redux, { connect } from '@obsidians/redux'
 
-const cellCollection = new CkbCellCollection()
-window.txBuilder = new CkbTxBuilder(cellCollection, fileOps.current.fs)
+import keypairManager from '@obsidians/keypair'
+import CkbTx from '@obsidians/ckb-tx'
+import CkbTxBuilder from '@obsidians/ckb-tx-builder'
+
+import { withRouter } from 'react-router-dom'
 
 class BlockchainApi extends Component {
   constructor (props) {
@@ -21,6 +16,8 @@ class BlockchainApi extends Component {
       addressBook: []
     }
     this.page = React.createRef()
+    this.txBuilder = new CkbTxBuilder()
+
     props.cacheLifecycles.didRecover(this.checkLocation)
   }
 
@@ -124,7 +121,7 @@ class BlockchainApi extends Component {
         tabs={this.getTabs()}
         starred={this.getStarred()}
         addressBook={this.state.addressBook}
-        cellCollection={cellCollection}
+        txBuilder={this.txBuilder}
         onValueChanged={this.onValueChanged}
         onChangeStarred={this.onChangeStarred}
         onTabsUpdated={this.onTabsUpdated}
