@@ -2360,24 +2360,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nervosnetwork/ckb-sdk-core@^0.32.0":
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/@nervosnetwork%2fckb-sdk-core/-/ckb-sdk-core-0.32.0.tgz#6609b14e7daa5e61bb55ea361581dd634c65b2d8"
-  integrity sha512-h7sAT2XosXoq6SCLdmu5cxYpJU/7+9LyMcxGLDc81ubpbq1uuayaT8XBCBW7129ACoMxeE96R1Ac4kgcnRNYqQ==
-  dependencies:
-    "@nervosnetwork/ckb-sdk-rpc" "0.32.0"
-    "@nervosnetwork/ckb-sdk-utils" "0.32.0"
-    "@nervosnetwork/ckb-types" "0.32.0"
-
-"@nervosnetwork/ckb-sdk-rpc@0.32.0":
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/@nervosnetwork%2fckb-sdk-rpc/-/ckb-sdk-rpc-0.32.0.tgz#b91a0d3821db52ce797bbb0926812f02166cbccc"
-  integrity sha512-//6jKxNyUZ3dSxLVX/HS7NJvK+FI8tWDISCFLpuQ4LpBzpHuurJv3GQ/omLuMyA01d87pgGmDHcUSNrGcXvBgw==
-  dependencies:
-    "@nervosnetwork/ckb-sdk-utils" "0.32.0"
-    axios "0.19.2"
-
-"@nervosnetwork/ckb-sdk-utils@0.32.0", "@nervosnetwork/ckb-sdk-utils@^0.32.0":
+"@nervosnetwork/ckb-sdk-utils@^0.32.0":
   version "0.32.0"
   resolved "https://registry.yarnpkg.com/@nervosnetwork%2fckb-sdk-utils/-/ckb-sdk-utils-0.32.0.tgz#a9e1768b6dcf22b7428e8bac7b06e2a64b83a23c"
   integrity sha512-7rX3mSEbeMUwXT5ssu9L2nCLlJ+LetQx5UinVBhh2ABz+46ugHIIG78b/WaxKCTRnpFAXsch+PXEcc6eFeJJJQ==
@@ -3572,13 +3555,6 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.0.tgz#24390e6ad61386b0a747265754d2a17219de862c"
   integrity sha512-Uvq6hVe90D0B2WEnUqtdgY1bATGz3mw33nH9Y+dmA+w5DHvUmBgkr5rM/KCHpCsiFNRUfokW/szpPPgMK2hm4A==
 
-axios@0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
-  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
-  dependencies:
-    follow-redirects "1.5.10"
-
 axobject-query@^2.0.2:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.1.1.tgz#2a3b1271ec722d48a4cd4b3fcc20c853326a49a7"
@@ -3860,6 +3836,21 @@ blake2b-wasm@2.1.0:
   resolved "https://registry.yarnpkg.com/blake2b-wasm/-/blake2b-wasm-2.1.0.tgz#aa90ed687b8a92e1c01d1643db86bcf21caa2ab7"
   integrity sha512-8zKXt9nk4cUCBU2jaUcSYcPA+UESwWOmb9Gsi8J35BifVb+tjVmbDhZbvmVmZEk6xZN1y35RNW6VqOwb0mkqsg==
   dependencies:
+    nanoassert "^1.0.0"
+
+blake2b-wasm@^1.1.0:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/blake2b-wasm/-/blake2b-wasm-1.1.7.tgz#e4d075da10068e5d4c3ec1fb9accc4d186c55d81"
+  integrity sha512-oFIHvXhlz/DUgF0kq5B1CqxIDjIJwh9iDeUUGQUcvgiGz7Wdw03McEO7CfLBy7QKGdsydcMCgO9jFNBAFCtFcA==
+  dependencies:
+    nanoassert "^1.0.0"
+
+blake2b@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/blake2b/-/blake2b-2.1.3.tgz#f5388be424768e7c6327025dad0c3c6d83351bca"
+  integrity sha512-pkDss4xFVbMb4270aCyGD3qLv92314Et+FsKzilCLxDz5DuZ2/1g3w4nmBbu6nKApPspnjG7JcwTjGZnduB1yg==
+  dependencies:
+    blake2b-wasm "^1.1.0"
     nanoassert "^1.0.0"
 
 block-stream@*:
@@ -4504,6 +4495,14 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+ckb-js-toolkit@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/ckb-js-toolkit/-/ckb-js-toolkit-0.9.2.tgz#c80eb98dc25099241e97bb025ac1566b896bbd49"
+  integrity sha512-KutTBpsvkioPl3wPzwS6A5yEppq2pbpSPG4dXnbAu+L5gBzhQVEOj5tH4WBwF8qHm6u9mc/zCRnmjPw8e8Ad2g==
+  dependencies:
+    cross-fetch "^3.0.6"
+    jsbi "^3.1.2"
+
 "ckb-js-toolkit@git+https://git@github.com/xxuejie/ckb-js-toolkit.git":
   version "0.9.1"
   resolved "git+https://git@github.com/xxuejie/ckb-js-toolkit.git#6b7dff814d6fe505d8e9be94152d3edae0499a55"
@@ -5058,6 +5057,13 @@ cross-fetch@^3.0.4:
     node-fetch "2.6.0"
     whatwg-fetch "3.0.0"
 
+cross-fetch@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.6.tgz#3a4040bc8941e653e0e9cf17f29ebcd177d3365c"
+  integrity sha512-KBPUbqgFjzWlVcURG+Svp9TlhA5uliYtiNx/0r8nv0pdypeQCRJ9IaSIc3q/x3q8t3F75cHuwxVql1HFGHCNJQ==
+  dependencies:
+    node-fetch "2.6.1"
+
 cross-spawn-async@^2.1.1:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/cross-spawn-async/-/cross-spawn-async-2.2.5.tgz#845ff0c0834a3ded9d160daca6d390906bb288cc"
@@ -5438,13 +5444,6 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.5.1, debug@^2.6.0, debug@^2.6.
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
-  dependencies:
-    ms "2.0.0"
-
-debug@=3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
   dependencies:
     ms "2.0.0"
 
@@ -6913,13 +6912,6 @@ flux@^3.1.3:
   dependencies:
     fbemitter "^2.0.0"
     fbjs "^0.8.0"
-
-follow-redirects@1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
-  dependencies:
-    debug "=3.1.0"
 
 follow-redirects@^1.0.0:
   version "1.9.0"
@@ -10122,6 +10114,11 @@ node-fetch@2.6.0, node-fetch@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+
+node-fetch@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-fetch@^1.0.1:
   version "1.7.3"

@@ -42,6 +42,7 @@ const overrides = [
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src/lib'),
     util: path.resolve(__dirname, 'src/lib/util'),
+    xxhash: path.resolve(__dirname, 'src/lib/xxhash'),
     '@obsidians/bottombar': `@obsidians/${process.env.BUILD}-bottombar`,
     '@obsidians/header': `@obsidians/${process.env.BUILD}-header`,
     '@obsidians/network': `@obsidians/${process.env.BUILD}-network`,
