@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Screen, Button } from '@obsidians/ui-components'
 import redux, { connect } from '@obsidians/redux'
 
-import keypairManager from '@obsidians/keypair'
 import CkbTx from '@obsidians/ckb-tx'
 import CkbTxBuilder from '@obsidians/ckb-tx-builder'
 
@@ -12,22 +11,14 @@ import { withRouter } from 'react-router-dom'
 class BlockchainApi extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      addressBook: []
-    }
     this.page = React.createRef()
     this.txBuilder = new CkbTxBuilder()
 
     props.cacheLifecycles.didRecover(this.checkLocation)
   }
 
-  componentDidMount () {
-    this.refresh()
-  }
-
   shouldComponentUpdate (props, state) {
     return (
-      this.state.addressBook !== state.addressBook ||
       this.props.network !== props.network ||
       this.props.match !== props.match
     )
@@ -35,9 +26,6 @@ class BlockchainApi extends Component {
 
   componentDidUpdate () {
     this.checkLocation()
-    keypairManager.onUpdated(keypairs => {
-      this.setState({ addressBook: keypairs })
-    })
   }
 
   checkLocation = () => {
@@ -56,11 +44,6 @@ class BlockchainApi extends Component {
     if (name !== pageRef.currentValue) {
       pageRef.openTab(name)
     }
-  }
-
-  refresh = async () => {
-    const keypairs = await keypairManager.loadAllKeypairs()
-    this.setState({ addressBook: keypairs })
   }
 
   getSelected = (props = this.props) => props.contracts.getIn([props.network, 'selected']);
@@ -120,7 +103,6 @@ class BlockchainApi extends Component {
         address={this.getSelected()}
         tabs={this.getTabs()}
         starred={this.getStarred()}
-        addressBook={this.state.addressBook}
         txBuilder={this.txBuilder}
         onValueChanged={this.onValueChanged}
         onChangeStarred={this.onChangeStarred}

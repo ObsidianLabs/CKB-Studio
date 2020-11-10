@@ -12,20 +12,12 @@ import redux, { connect } from '@obsidians/redux'
 class Explorer extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      addressBook: []
-    }
     this.page = React.createRef()
     props.cacheLifecycles.didRecover(this.checkLocation)
   }
 
-  componentDidMount () {
-    this.refresh()
-  }
-
   shouldComponentUpdate (props, state) {
     return (
-      this.state.addressBook !== state.addressBook ||
       this.props.network !== props.network ||
       this.props.match !== props.match
     )
@@ -51,11 +43,6 @@ class Explorer extends Component {
     if (name !== pageRef.currentValue) {
       pageRef.openTab(name)
     }
-  }
-
-  refresh = async () => {
-    const keypairs = await keypairManager.loadAllKeypairs()
-    this.setState({ addressBook: keypairs })
   }
 
   getSelected = (props = this.props) => props.accounts.getIn([props.network, 'selected']);
@@ -115,7 +102,6 @@ class Explorer extends Component {
         address={this.getSelected()}
         tabs={this.getTabs()}
         starred={this.getStarred()}
-        addressBook={this.state.addressBook}
         onValueChanged={this.onValueChanged}
         onChangeStarred={this.onChangeStarred}
         onTabsUpdated={this.onTabsUpdated}
