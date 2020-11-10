@@ -34,7 +34,7 @@ export default function (props) {
           />
           <CacheRoute
             exact
-            path='/contract/:name?'
+            path='/tx/:name?'
             component={NavbarRightPage1}
             className='p-relative w-100 h-100'
           />

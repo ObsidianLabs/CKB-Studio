@@ -63,7 +63,7 @@ class BlockchainApi extends Component {
       network: this.props.network,
       contract: value
     })
-    this.props.history.push(`/contract/${value}`)
+    this.props.history.push(`/tx/${value}`)
   }
 
   onChangeStarred = starred => {
