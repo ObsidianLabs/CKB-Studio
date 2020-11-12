@@ -1937,6 +1937,16 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@ckb-lumos/base@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@ckb-lumos/base/-/base-0.13.1.tgz#6439b230bd64e3b6d64fbe0d9c19806b5fbf7ea7"
+  integrity sha512-elJLWRAfLxQ1AKxed3HmBGcDc9TDUV4As9586Qe78BKf8rf7nOQ1VVyaWpUePo7vCPKclXkulY3XpwqnBKtmOg==
+  dependencies:
+    blake2b "^2.1.3"
+    ckb-js-toolkit "^0.9.2"
+    immutable "^4.0.0-rc.12"
+    xxhash "^0.3.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -15682,6 +15692,13 @@ xterm@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/xterm/-/xterm-4.4.0.tgz#5915d3c4c8800fadbcf555a0a603c672ab9df589"
   integrity sha512-JGIpigWM3EBWvnS3rtBuefkiToIILSK1HYMXy4BCsUpO+O4UeeV+/U1AdAXgCB6qJrnPNb7yLgBsVCQUNMteig==
+
+xxhash@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/xxhash/-/xxhash-0.3.0.tgz#d20893a62c5b0f7260597dd55859b12a1e02c559"
+  integrity sha512-1ud2yyPiR1DJhgyF1ZVMt+Ijrn0VNS/wzej1Z8eSFfkNfRPp8abVZNV2u9tYy9574II0ZayZYZgJm8KJoyGLCw==
+  dependencies:
+    nan "^2.13.2"
 
 "y18n@^3.2.1 || ^4.0.0", y18n@^4.0.0:
   version "4.0.0"
