@@ -30,7 +30,6 @@ export default class ReduxApp extends Component {
     const dependencies = await checkDependencies()
     this.setState({ loaded: true, dependencies })
     autoUpdater.check()
-    Auth.getToken()
   }
 
   skip = () => {
