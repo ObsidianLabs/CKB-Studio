@@ -9,10 +9,11 @@ function BottomBarWithProps (props) {
 
   return (
     <BottomBar
+      profile={props.profile}
       txs={props.queue.getIn([props.network, 'txs'])}
       projectValid={projectValid}
     />
   )
 }
 
-export default connect(['projects', 'queue', 'network'])(BottomBarWithProps)
+export default connect(['profile', 'projects', 'queue', 'network'])(BottomBarWithProps)
