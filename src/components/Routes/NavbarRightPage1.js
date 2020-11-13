@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { Screen, Button } from '@obsidians/ui-components'
 import redux, { connect } from '@obsidians/redux'
 
+import { networkManager } from '@obsidians/ckb-network'
 import CkbTx from '@obsidians/ckb-tx'
-import CkbTxBuilder from '@obsidians/ckb-tx-builder'
 
 import { withRouter } from 'react-router-dom'
 
@@ -12,7 +12,6 @@ class BlockchainApi extends Component {
   constructor (props) {
     super(props)
     this.page = React.createRef()
-    this.txBuilder = new CkbTxBuilder()
 
     props.cacheLifecycles.didRecover(this.checkLocation)
   }
@@ -103,7 +102,7 @@ class BlockchainApi extends Component {
         address={this.getSelected()}
         tabs={this.getTabs()}
         starred={this.getStarred()}
-        txBuilder={this.txBuilder}
+        txBuilder={networkManager.txBuilder}
         onValueChanged={this.onValueChanged}
         onChangeStarred={this.onChangeStarred}
         onTabsUpdated={this.onTabsUpdated}

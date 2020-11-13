@@ -35,12 +35,13 @@ class HeaderWithRedux extends PureComponent {
   render () {
     console.debug('[render] HeaderWithRedux')
     const { profile, projects, contracts, accounts, network } = this.props
+    const [networkId, chain] = network.split(':')
 
     const selectedProject = projects.get('selected')?.toJS() || {}
 
     const networkGroups = networks.groupBy(n => n.group)
     const networkList = this.networkList(networkGroups)
-    const selectedNetwork = networks.find(n => n.id === network) || {}
+    const selectedNetwork = networks.find(n => n.id === networkId) || {}
 
     const starred = accounts.getIn([network, 'accounts'])?.toJS() || []
     const selectedContract = contracts.getIn([network, 'selected']) || ''
