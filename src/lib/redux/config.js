@@ -1,4 +1,4 @@
-import Immutable, { List, Map } from 'immutable'
+import Immutable, { List } from 'immutable'
 
 export { redux as profile } from '@obsidians/auth'
 export { redux as projects } from '@obsidians/project'

@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Screen, Button } from '@obsidians/ui-components'
 
 import CkbAccount from '@obsidians/ckb-account'
-import keypairManager from '@obsidians/keypair'
 
 import { withRouter } from 'react-router-dom'
 
