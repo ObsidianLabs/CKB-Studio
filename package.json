@@ -61,9 +61,9 @@
     "default-shell": "^1.0.1",
     "dotenv": "^8.0.0",
     "electron": "11.0.3",
-    "electron-builder": "^22.9.1",
+    "electron-builder": "^22.10.3",
     "electron-is-dev": "^1.2.0",
-    "electron-rebuild": "^2.3.2",
+    "electron-rebuild": "^2.3.4",
     "electron-updater": "^4.3.5",
     "immutable": "^4.0.0-rc.12",
     "less": "^3.9.0",
@@ -132,7 +132,11 @@
     },
     "mac": {
       "appId": "com.obsidians.ckbstudio",
-      "category": "developer-tools"
+      "category": "developer-tools",
+      "target": {
+        "target": "dmg",
+        "arch": ["arm64", "x64"]
+      }
     },
     "dmg": {
       "contents": [
