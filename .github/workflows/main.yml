@@ -1,4 +1,4 @@
-name: Build
+name: Build Main
 
 on:
   release:
@@ -202,7 +202,6 @@ jobs:
       - name: Build ${{ env.own_components }}
         working-directory: ./${{ env.own_components }}
         run: yarn build
-
 
       - name: Build ${{ env.project_name }}
         uses: ObsidianLabs/studio-build-action@master
