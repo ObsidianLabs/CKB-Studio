@@ -16,7 +16,6 @@ env:
   project_build_script: yarn && PUBLIC_URL=/ CDN=true yarn build:react
 
 jobs:
-
   # Build and release
   release:
     runs-on: ubuntu-18.04
