@@ -84,7 +84,6 @@ jobs:
           git push origin master:master
           git push origin develop:develop
 
-
   # Tag components
   tag-component:
     needs: [ generate-matrix, versions ]
