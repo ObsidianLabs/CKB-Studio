@@ -12,6 +12,7 @@ env:
   own_components: ckb-components
   share_components: electron-components
   project_build: ckb
+  project_project: ckb
   project_name: CKB Studio
   project_build_script: yarn && PUBLIC_URL=/ CDN=true yarn build:react
 
@@ -76,6 +77,7 @@ jobs:
         uses: ObsidianLabs/studio-build-action@master
         with:
           build: ${{ env.project_build }}
+          project: ${{ env.project_project }}
           project_name: ${{ env.project_name }}
           build_script: ${{ env.project_build_script }}
           working-directory: ./studio
