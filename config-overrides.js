@@ -58,6 +58,7 @@ const overrides = [
     OS_IS_LINUX: JSON.stringify(os.type() === 'Linux'),
     OS_IS_WINDOWS: JSON.stringify(os.type() === 'Windows_NT'),
     OS_IS_MAC: JSON.stringify(os.type() === 'Darwin'),
+    ENABLE_AUTH: JSON.stringify(!!process.env.ENABLE_AUTH),
   }),
   addWasmLoader(),
 ]
