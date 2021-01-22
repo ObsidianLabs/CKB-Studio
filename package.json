@@ -3,7 +3,7 @@
   "description": "Graphic IDE for CKB script development",
   "version": "0.9.1",
   "author": {
-    "name": "CKB Studio",
+    "name": "Phil Li",
     "email": "phil.li@obsidians.io",
     "url": "https://obsidians.io"
   },
