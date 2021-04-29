@@ -16,7 +16,7 @@ env:
   project_name: CKB Studio
   project_build_script: yarn && PUBLIC_URL=/ CDN=true yarn build:react
   enable_auth: true
-  cos_bucket: bsn-eth-1303090311
+  cos_bucket: bsn-ckb-1303090311
   cos_region: ap-singapore
   dns_path: http://bsn-ckb.ide.black/
 
