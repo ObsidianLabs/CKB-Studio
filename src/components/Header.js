@@ -1,19 +1,68 @@
 import React, { PureComponent } from 'react'
 
 import { connect } from '@obsidians/redux'
+import { IpcChannel } from '@obsidians/ipc'
 
 import headerActions, { Header, NavGuard } from '@obsidians/header'
 import { networkManager, networks } from '@obsidians/network'
 import { actions } from '@obsidians/workspace'
 
+import { List } from 'immutable'
+
 class HeaderWithRedux extends PureComponent {
+  state = {
+    networkList: List()
+  }
+
   componentDidMount () {
     actions.history = this.props.history
     headerActions.history = this.props.history
-    if (!networkManager.network) {
-      networkManager.setNetwork(networks.getIn([0, 'id']))
-    }
+    this.refresh()
     this.navGuard = new NavGuard(this.props.history)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.network && prevProps.network !== this.props.network) {
+      this.refresh()
+    }
+  }
+
+  async refresh () {
+    if (process.env.DEPLOY === 'bsn') {
+      try {
+        const ipc = new IpcChannel('bsn')
+        const projects = await ipc.invoke('projects', { chain: 'ckb' })
+        this.setState({
+          networkList: List(projects.map(project => {
+            const url = project.endpoints?.find(endpoint => endpoint.startsWith('http'))
+            return {
+              id: `bsn${project.network.id}`,
+              group: 'BSN',
+              name: `${project.network.name}`,
+              fullName: `${project.network.name} - ${project.name}`,
+              icon: 'fas fa-globe',
+              notification: `Switched to <b>${project.name}</b>.`,
+              url,
+              indexer: `${url}/indexer`,
+              explorer: project.network.name.includes('Mainnet') ? 'https://ckb.obsidians.io/explorer/lina' : 'https://ckb.obsidians.io/explorer/aggron',
+              chainId: project.id
+            }
+          }))
+        }, this.setNetwork)
+      } catch (error) {
+        console.log(error)
+      }
+    } else {
+      this.setState({
+        networkList: List(networks)
+      }, this.setNetwork)
+    }
+  }
+
+  setNetwork () {
+    if (!networkManager.network) {
+      networkManager.setNetwork(this.state.networkList.get(0))
+    }
   }
 
   networkList = networksByGroup => {
@@ -39,9 +88,9 @@ class HeaderWithRedux extends PureComponent {
 
     const selectedProject = projects.get('selected')?.toJS() || {}
 
-    const networkGroups = networks.groupBy(n => n.group)
+    const networkGroups = this.state.networkList.groupBy(n => n.group)
     const networkList = this.networkList(networkGroups)
-    const selectedNetwork = networks.find(n => n.id === networkId) || {}
+    const selectedNetwork = this.state.networkList.find(n => n.id === networkId) || {}
 
     const starred = accounts.getIn([network, 'accounts'])?.toJS() || []
     const selectedContract = contracts.getIn([network, 'selected']) || ''
