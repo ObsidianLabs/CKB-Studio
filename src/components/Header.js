@@ -52,7 +52,7 @@ class HeaderWithRedux extends PureComponent {
             name: `${project.network.name}`,
             fullName: `${project.network.name} - ${project.name}`,
             icon: 'fas fa-globe',
-            notification: `Switched to <b>${project.name}</b>.`,
+            notification: `Switched to <b>${project.network.name}</b>.`,
             url,
             indexer: `${url}/indexer`,
             explorer: project.network.name.includes('Mainnet') ? 'https://ckb.obsidians.io/explorer/lina' : 'https://ckb.obsidians.io/explorer/aggron',
