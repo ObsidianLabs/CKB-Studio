@@ -60,7 +60,6 @@ async function createProject ({ networkManager, projectChannel }, { projectRoot,
       }
     })
   } catch (error) {
-    // console.log(error)
   }
 
   return created
