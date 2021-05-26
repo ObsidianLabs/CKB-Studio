@@ -45,6 +45,7 @@ class HeaderWithRedux extends PureComponent {
     try {
       const ipc = new IpcChannel('bsn')
       const projects = await ipc.invoke('projects', { chain: 'ckb' })
+
       networkManager.networks = projects.map(project => {
         const url = project.endpoints?.find(endpoint => endpoint.startsWith('http'))
         return {
