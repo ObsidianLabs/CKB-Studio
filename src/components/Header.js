@@ -49,12 +49,12 @@ class HeaderWithRedux extends PureComponent {
       networkManager.networks = projects.map(project => {
         const url = project.endpoints?.find(endpoint => endpoint.startsWith('http'))
         return {
-          id: `bsn${project.network.id}`,
+          id: `${project.name}${project.network.id}`,
           group: 'BSN',
-          name: `${project.network.name}`,
+          name: `${project.name}`,
           fullName: `${project.network.name} - ${project.name}`,
           icon: 'fas fa-globe',
-          notification: `Switched to <b>${project.network.name}</b>.`,
+          notification: `Switched to <b>${project.name}</b>.`,
           url,
           indexer: `${url}/indexer`,
           explorer: project.network.name.includes('Mainnet') ? 'https://ckb.obsidians.io/explorer/lina' : 'https://ckb.obsidians.io/explorer/aggron',
