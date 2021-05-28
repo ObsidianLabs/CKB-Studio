@@ -31,6 +31,7 @@ async function handleBsnCallback ({ location, history }) {
       appTypeId,
       appTypeFrameName,
     } = JSON.parse(atob(decodeURIComponent(state)))
+
     // bsnParams = {
     //   urlCode,
     //   projectId,
