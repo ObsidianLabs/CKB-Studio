@@ -18,7 +18,7 @@ class UserHomepage extends BaseUserHomepage {
     console.log(networkId, counter)
     if (networkManager?.networks?.length) {
       const network = networkManager.networks.find(network => network.id === networkId)
-      console.log(networks, network)
+      console.log(networkManager.networks, network)
       if (network) {
         networkManager.setNetwork(network, { redirect: false, notify: true })
       }
