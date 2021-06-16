@@ -8,6 +8,7 @@ import { networkManager, networks } from '@obsidians/network'
 import { BaseProjectManager } from '@obsidians/workspace'
 import { actions } from '@obsidians/workspace'
 import { createProject } from '../lib/bsn'
+import icon from './bsn.png'
 
 import { List } from 'immutable'
 
@@ -101,6 +102,12 @@ class HeaderWithRedux extends PureComponent {
     return process.env.DEPLOY === 'bsn' && cp
   }
 
+  renderLogo () {
+    return <div className="d-flex align-items-center" style={{ margin: '7px 17px' }}>
+      <img src={icon} style={{ background: 'transparent', height: '100%' }}/>
+    </div>
+  }
+
   render () {
     console.debug('[render] HeaderWithRedux')
     const { profile, projects, contracts, accounts, network } = this.props
@@ -129,6 +136,7 @@ class HeaderWithRedux extends PureComponent {
         networkList={networkList}
         AuthModal={AuthModal}
         createProject={this.setCreateProject()}
+        navbarCenter={this.renderLogo()}
       />
     )
   }
