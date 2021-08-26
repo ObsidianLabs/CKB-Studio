@@ -8,9 +8,12 @@ import { networkManager, networks } from '@obsidians/network'
 import { BaseProjectManager } from '@obsidians/workspace'
 import { actions } from '@obsidians/workspace'
 import { createProject } from '../lib/bsn'
-import icon from './bsn.png'
+import keypairManager from '@obsidians/keypair'
+import { kp } from '@obsidians/sdk'
 
 import { List } from 'immutable'
+
+keypairManager.kp = kp
 
 class HeaderWithRedux extends PureComponent {
   state = {
@@ -103,9 +106,14 @@ class HeaderWithRedux extends PureComponent {
   }
 
   renderLogo () {
-    return <div className="d-flex align-items-center" style={{ margin: '7px 17px' }}>
-      <img src={icon} style={{ background: 'transparent', height: '100%' }}/>
-    </div>
+    if (process.env.REACT_APP_LOGO) {
+      return (
+        <div className='d-flex align-items-center' style={{ margin: '7px 17px' }}>
+          <img src={require(process.env.REACT_APP_LOGO).default} style={{ background: 'transparent', height: '100%' }}/>
+        </div>
+      )
+    }
+    return null
   }
 
   render () {
@@ -127,7 +135,7 @@ class HeaderWithRedux extends PureComponent {
     return (
       <Header
         profile={profile}
-        projects={projects.get('local').toJS()}
+        projects={projects}
         selectedProject={selectedProject}
         selectedContract={selectedContract}
         selectedAccount={selectedAccount}
@@ -136,7 +144,7 @@ class HeaderWithRedux extends PureComponent {
         networkList={networkList}
         AuthModal={AuthModal}
         createProject={this.setCreateProject()}
-        navbarCenter={this.renderLogo()}
+        logo={this.renderLogo()}
       />
     )
   }
