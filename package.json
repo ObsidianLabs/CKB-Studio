@@ -62,7 +62,7 @@
     "customize-cra": "^1.0.0",
     "default-shell": "^1.0.1",
     "dotenv": "^8.0.0",
-    "electron": "11.2.0",
+    "electron": "11.5.0",
     "electron-builder": "^22.10.4",
     "electron-is-dev": "^1.2.0",
     "electron-rebuild": "^2.3.4",
