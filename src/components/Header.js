@@ -63,6 +63,7 @@ class HeaderWithRedux extends PureComponent {
           indexer: `${url}/indexer`,
           explorer: project.network.name.includes('Mainnet') ? 'https://ckb.obsidians.io/explorer/lina' : 'https://ckb.obsidians.io/explorer/aggron',
           chainId: project.id,
+          projectKey: project.key,
           raw: project
         }
       })
