@@ -24,6 +24,16 @@ Installation packages are provided in [releases](https://github.com/ObsidianLabs
 - **Windows**: Double-click `CKBStudio-x.x.x.exe` to install CKB Studio. If you see a warning window for unrecognized app, click *more info* and then click the *Run anyway* button to start the installation.
 - **Linux**: Right-click `CKBStudio-x.x.x.AppImage`, select *Properties* => *Permissions* => *Execute*, and check the option *Allow executing file as progrom*. Close the property window and double-click the application to open it (different Linux systems may have slightly different installation procedures).
 
+### Post-installation steps for Linux
+
+CKB Studio uses `inotify` by default on Linux to monitor directories for changes. You will need to increase the amount of inotify watchers to ensure the filetree is refreshed properly.
+
+To increase inotify watchers at boot, execute the following command in Terminal:
+
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
 ## Feature Walkthrough
 
 ### Install Dependencies for CKB Development
